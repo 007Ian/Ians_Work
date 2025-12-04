@@ -1,0 +1,292 @@
+---
+title: "HR_Consulting_Project"
+author: "Ian Blad"
+date: "2025-03-31"
+output: 
+  html_document:
+    theme: darkly
+    code_folding: hide
+---
+
+```{r message=FALSE, warning=FALSE}
+library(GGally)
+library(ggplot2)
+library(dbplyr)
+library(mosaic)
+library(ggcorrplot)
+library(dplyr)
+library(broom)
+library(knitr)
+library(pander)
+```
+
+We are doing a mock consulting project for a tech company that is trying to figure out how to reduce their turnover rate. The company has been around for a little more than a year and has had many very talented programmers and managers, who have left. They have a very high turnover rate and so they have sent out a survey to their employees to try and figure out what is going on. They have also sent us their HR data so we can analyze it and see if we can find any patterns that might help them. 
+
+The survey that was sent out is attached to this file along with the code that was used to generate the data. The survey is a Likert scale survey that asks employees about their job satisfaction, career growth perception, intent to stay, autonomy in work, and job embedness. The HR data includes information about the employees' age, job level, salary, education, location, department, performance rating, and promotion history. The data was generated using a simulation model with well done research on the factors that influence retention in mind.
+
+
+```{r message=FALSE, warning=FALSE}
+
+set.seed(123)  # Ensuring reproducibility
+n <- 537  # Number of employees
+
+# Step 1: HR-Related Data #
+age <- round(rnorm(n, mean = 30, sd = 5))  
+
+job_level <- sample(1:7, n, replace = TRUE, prob = c(0.1, 0.15, 0.2, 0.2, 0.15, 0.1, 0.1))
+# Varying levels of employment, from entry level to head of corporate offices.
+
+salary <- job_level * sample(5000:10000, n, replace = TRUE) + rnorm(n, mean = 20000, sd = 5000) 
+# in dollars
+
+education <- sample(0:4, n, replace = TRUE, prob = c(0.05, 0.15, 0.3, 0.3, 0.2)) 
+# 0=Highschool, 1=Associates, 2=Bachelors 3=Masters 4=Doctorate
+
+locations <- sample(c("New York", "San Francisco", "Chicago", "Austin", "Seattle", "Denver", "Miami"), n, replace = TRUE)
+
+departments <- sample(c("Engineering & Dev", "Product & Design", "IT & Security", "Sales & Marketing", "Customer & HR", "Leadership"), n, replace = TRUE)
+
+performance_ratings <- sample(2:10, n, replace = TRUE, prob = c(0.05, 0.05, 0.05, 0.05, 0.1, 0.25, 0.25, 0.1, 0.1))
+
+### Step 2: Modify HR Survey Data to Use Likert Scales ###
+# Likert scale values (1 to 5)
+job_satisfaction <- sample(1:5, n, replace = TRUE, prob = c(0.05, 0.15, 0.35, 0.3, 0.15))  
+career_growth_perception <- sample(1:5, n, replace = TRUE, prob = c(0.1, 0.2, 0.4, 0.2, 0.1))
+intent_to_stay <- sample(1:5, n, replace = TRUE, prob = c(0.05, 0.1, 0.3, 0.4, 0.15))
+autonomy_in_work <- sample(1:5, n, replace = TRUE, prob = c(0.05, 0.1, 0.3, 0.35, 0.2))
+job_embedness <- sample(1:5, n, replace = TRUE, prob = c(0.05, 0.1, 0.3, 0.35, 0.2))
+
+
+# Step 3: Calculate Retention Based on Constructs ###
+# Assuming a simple function or formula to calculate retention as you described:
+retention_probability <- 0.6 + 0.4 * job_satisfaction + 0.2 * career_growth_perception + 
+                         0.25 * intent_to_stay + 0.2 * autonomy_in_work + 0.3 * job_embedness
+
+retention_probability <- retention_probability*.1
+
+# Apply promotion effect (23% chance of leaving within 6 months)
+promotion_history <- sample(0:3, n, replace = TRUE, prob = c(0.3, 0.3, 0.2, 0.2))  # 0-3 promotions possible
+promotion_leave_probability <- ifelse(promotion_history > 0, 0.21, 0)
+
+# Adjust retention based on promotion history (i.e., chance of leaving)
+retention_probability <- retention_probability - promotion_leave_probability
+
+# Apply low performer department and location effect (30% lower retention)
+low_performers <- performance_ratings >= 2 & performance_ratings <= 4  # Identifying low performers
+low_performer_effect <- 0.33  # 30% lower retention
+
+retention_probability[low_performers] <- retention_probability[low_performers] * (1 - low_performer_effect)
+
+# Ensure the retention probability stays within reasonable bounds (0 to 1)
+retention_probability <- pmin(pmax(retention_probability, 0), 1)
+
+# Step 4: Determine if employee leaves or stays based on retention probability
+# Generate random values to simulate whether each employee stays or leaves
+leaves <- runif(n) < retention_probability
+
+# Print summary to check the retention rates
+# summary(leaves)
+
+
+
+### Step 5: Compile Data Frame ###
+HR_data <- data.frame(
+  Age = age,
+  Job_Level = as.factor(job_level),
+  Salary = salary,
+  Education = as.factor(education),
+  Location = as.factor(locations),
+  Department = as.factor(departments),
+  Performance_Rating = performance_ratings,
+  Promotion_History = as.factor(promotion_history),
+  Job_Satisfaction = job_satisfaction,
+  Career_Growth_Perception = career_growth_perception,
+  Intent_to_Stay = intent_to_stay,
+  Autonomy_in_Work = autonomy_in_work,
+  Job_Embedness = job_embedness,
+  Leaves = as.factor(leaves)  # Outcome variable for retention
+)
+
+
+
+
+survey_vars <- HR_data[, c("Job_Satisfaction", "Career_Growth_Perception", 
+                                "Intent_to_Stay", "Autonomy_in_Work", "Job_Embedness")]
+
+# Select traditional HR variables (excluding Leaves)
+traditional_vars <- HR_data[, c("Age", "Job_Level", "Salary", "Education", 
+                                     "Location", "Department", "Performance_Rating", 
+                                     "Promotion_History")]
+
+# Plot 1: Survey variables
+pairs(survey_vars,
+      main = "HR Survey Variable Relationships",
+      col = HR_data$Leaves,
+      pch = 19, panel=panel.smooth)
+
+# Plot 2: Traditional HR variables
+pairs(traditional_vars,
+      main = "Traditional HR Variable Relationships",
+      col = HR_data$Leaves,
+      pch = 19,panel=panel.smooth)
+
+# Logistic Regression Model
+logit_model <- glm(Leaves ~ Job_Level + Salary + Education + Location + Department + 
+                   Performance_Rating + Promotion_History + Job_Satisfaction + 
+                   Career_Growth_Perception, 
+                   data = HR_data, family = binomial())
+
+
+summary(logit_model) %>% pander()
+
+# Predicted probabilities
+HR_data$predicted_prob <- predict(logit_model, type = "response")
+
+# Make predictions (Threshold = 0.5 for leave/stay decision)
+HR_data$predicted_leave <- ifelse(HR_data$predicted_prob > 0.5, 1, 0)
+
+# Compare actual vs predicted
+#table(HR_data$Leaves, HR_data$predicted_leave)
+
+```
+
+We performed a Logistic regression analysis to predict the likelihood of employees leaving based on various factors. The model includes both traditional HR variables (like job level, salary, education, etc.) and survey-based variables (like job satisfaction, career growth perception, etc.). Most of the questions in the survey were not very useful in predicting turnover but we did find that the Job Satisfaction, Career Growth Perception, and Intent to Stay slightly helped predict retention. 
+
+
+
+
+
+
+```{r message=FALSE, warning=FALSE}
+
+
+# Create a plot to show the relationship between promotion history and predicted probability of leaving
+ggplot(HR_data, aes(x = Promotion_History, y = predicted_prob)) +
+  geom_boxplot()+  # Scatter plot points
+  geom_smooth(method = "loess", color = 'red', se = FALSE) +  # Loess smoother to show trend
+  labs(
+    title = "Relationship between Promotion History and Probability of Leaving",
+    x = "Promotion History (Number of Promotions)",
+    y = "Predicted Probability of Leaving"
+  ) +
+  theme_minimal()
+```
+
+After looking at the pairs plot, we noticed that Promotion History seems to have a very high correlation with leaving for some reason. After some research we found that a study done in 2023 that analyzed the job histories of more than 1.2 million people in the United States working for companies that employed at least a thousand people looking at the years 2019 through 2022. They found that within the first 6 months of promotion, employees are 23% more likely to leave their job than employees who have not been promoted (Who had a 18% chance). Employees at high risk of leaving right after promotion were those who did not spend too much time preparing for their new role (employees who were promoted but spent a lot of time in preperation did not have near as high turnover rate as those who did not prepare). The company who we are currently analyzing has a very high promotion rate (23% of employees were promoted in the last year) and many of them were promoted multiple times. This tells us they were not spending enough time in preperation for their new roles and were high risk of leaving. If we increased the time and preperation between the promotions we could reduce the turnover rate of promoted employees by 9% and 4.5% overall. 
+
+
+
+
+
+```{r message=FALSE, warning=FALSE}
+cor_data <- HR_data %>%
+  select(Leaves, Job_Satisfaction, Career_Growth_Perception, Intent_to_Stay, Autonomy_in_Work, Job_Embedness)
+
+cor_data$Leaves <- as.numeric(cor_data$Leaves)
+
+cor_matrix <- cor(cor_data)
+
+ggcorrplot(cor_matrix, 
+           method = "circle", 
+           type = "lower", 
+           lab = TRUE, 
+           lab_size = 4, 
+           colors = c("#B2182B", "white", "#2166AC"), 
+           title = "Correlation of HR Survey Factors with Leaving", 
+           ggtheme = theme_minimal())
+```
+
+When we run a correlation analysis on the HR questions we find that the only correlations we find are quite weak if existant at all. This is probably due to the fact that data collected by surveys aimed at predicting turnover is not always very accurate but still give us a good idea of how the employees feel about their jobs. Work done by researchers like Daniel Khaneman has showed us that surveys tend to show us how people are feeling in the moment and not how they feel about their job overall. This can be counteracted by having employees take surveys at random different times and then aggregating the data. If we did this we would probably find much stronger correlations.
+
+
+Now lets validate our model. Here is a predicted vs actual plot of the data.
+
+```{r message=FALSE, warning=FALSE}
+
+# Load necessary libraries
+
+
+# Logistic regression model (assuming it has already been fit)
+logit_model <- glm(Leaves ~ Job_Level + Salary + Education + Location + Department + 
+                   Performance_Rating + Promotion_History + Job_Satisfaction + 
+                   Career_Growth_Perception + Intent_to_Stay + Autonomy_in_Work + 
+                   Job_Embedness, 
+                   data = HR_data, family = binomial())
+
+# Predicted probabilities
+HR_data$predicted_prob <- predict(logit_model, type = "response")
+
+
+set.seed(121)
+
+# Split the data into training and testing sets (60% training, 40% testing)
+n <- nrow(HR_data)  # Use your HR dataset here
+keep <- sample(1:n, size = floor(0.6 * n))  # Randomly sample 60% of data for training
+mytrain <- HR_data[keep, ]
+mytest <- HR_data[-keep, ]
+
+# Train the logistic regression model using the training set
+logit_model_train <- glm(Leaves ~ Job_Level + Salary + Education + Location + Department + 
+                         Performance_Rating + Promotion_History + Job_Satisfaction + 
+                         Career_Growth_Perception + Intent_to_Stay + Autonomy_in_Work + 
+                         Job_Embedness, 
+                         data = mytrain, family = binomial())
+
+# Make predictions on the test set
+mypreds <- predict(logit_model_train, mytest, type = "response")
+
+# Choose a threshold (e.g., 0.5 for binary classification)
+callit <- ifelse(mypreds > 0.5, 1, 0)
+
+# Calculate accuracy (percentage of correct predictions)
+mytest$Leaves <- ifelse(mytest$Leaves == "Yes", 1, 0)  # Or TRUE/FALSE
+
+correct_predictions <- sum(mytest$Leaves == as.factor(callit))
+total_predictions <- length(mytest$Leaves)
+accuracy <- correct_predictions / total_predictions
+accuracy  # Display the accuracy of the model on the test set
+
+# Optionally, you can output a confusion matrix to visualize the results
+#table(mytest$Leaves, callit)
+
+
+
+
+```
+
+
+
+```{r}
+library(dplyr)
+
+# Add a column to test set marking correct vs incorrect
+mytest$Correct <- ifelse(mytest$Leaves == callit, "Correct", "Incorrect")
+
+# Count the number in each category
+accuracy_counts <- mytest %>%
+  count(Correct)
+
+# Plot with counts labeled
+ggplot(accuracy_counts, aes(x = Correct, y = n, fill = Correct)) +
+  geom_bar(stat = "identity", width = 0.6) +
+  geom_text(aes(label = n), vjust = -.3, size = 4, fontface = "bold") +
+  scale_fill_manual(values = c("Correct" = "#4CAF50", "Incorrect" = "#F44336")) +
+  labs(title = "Prediction Accuracy: Logistic Regression",
+       x = "Prediction Outcome",
+       y = "Count of Employees") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "none")
+```
+
+
+
+This graph shows the accuracy of our model. The model is 0.758% accurate which is very good for a model like this. This is mostly because of the promotion effect we saw earlier but we also the subtle effects saw by our survey. 
+
+If we were to increase the time between promotions by 6 months we would see a 9% decrease in turnover rate of promoted employees and a 4.5% decrease in overall turnover rate. This would be a very good thing for the company as it would save them a lot of money in hiring and training new employees. We can also change our survey to be more accurate by having employees take surveys at random different times and then aggregating the data. This would give us a much better idea of how the employees feel about their jobs and would help us to make better decisions in the future.
+
+
+
+
+
+
+

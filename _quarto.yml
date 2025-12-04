@@ -41,21 +41,21 @@ website:
   # comment out any of the sections below to turn off the sidebar
 
   sidebar: 
-    - title: "Data Cleansing"
+    - title: "Industrial Orginizational Analysis"
       style: "docked"
       background: light
       contents:
-        - text: "Data Cleansing"
+        - text: "Industrial Orginizational Analysis"
           file: cleansing.qmd
         - text: "---"
-        - text: "Project 1"
-          file: Cleansing_Projects/project1.qmd
+        - text: "HR retention Rate Analysis"
+          file: Industrial_Orginizational_Analysis/Consulting_project.qmd
         - text: "---"
         - text: "Project 2"
-          file: Cleansing_Projects/project2.qmd
+          file: Industrial_Orginizational_Analysis/project2.qmd
         - text: "---"
         - text: "Project 3"
-          file: Cleansing_Projects/project3.qmd
+          file: Industrial_Orginizational_Analysis/project3.qmd
         - text: "---"
     - title: "Data Exploration"
       style: "docked"
