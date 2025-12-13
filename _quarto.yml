@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Your_Name - Data Science Portfolio"
+  title: "Ian Blad - Portfolio"
   favicon: Images/favicon.png
   back-to-top-navigation: true
   repo-url: https://github.com/username/username.github.io
@@ -11,22 +11,20 @@ website:
 
   page-footer: 
     border: true
-    left: "Your_Name 2024©"
+    left: "Ian Blad 2025©"
     right: 
       - icon: linkedin
-        href: Your_LinkedIn_URL
+        href: www.linkedin.com/in/ianblad
 
   navbar:
     background: primary
     search: true   
     right:
-      - text: "Home"
-        file: index.qmd
       - text: "My Resume"
         file: resume.qmd
       - text: "Data Cleansing"
         file: cleansing.qmd
-      - text: "Data Exploration"
+      - text: "Expiremental Designs"
         file: exploration.qmd
       - text: "Story Telling"
         file: story_telling.qmd
@@ -57,7 +55,7 @@ website:
         - text: "Project 3"
           file: Industrial_Orginizational_Analysis/project3.qmd
         - text: "---"
-    - title: "Data Exploration"
+    - title: "Expiremental_Designs"
       style: "docked"
       background: light
       contents:
@@ -65,13 +63,13 @@ website:
           file: exploration.qmd
         - text: "---"
         - text: "Project 1"
-          file: Cleansing_Exploration/project1.qmd
+          file: Expiremental_Designs/project1.qmd
         - text: "---"
         - text: "Project 2"
-          file: Cleansing_Exploration/project2.qmd
+          file: Expiremental_Designs/project2.qmd
         - text: "---"
         - text: "Project 3"
-          file: Cleansing_Exploration/project3.qmd
+          file: Expiremental_Designs/project3.qmd
         - text: "---"
     - title: "Story Telling"
       style: "docked"
