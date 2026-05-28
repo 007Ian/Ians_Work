@@ -3,146 +3,55 @@ project:
   output-dir: docs
 
 website:
-  title: "Ian Blad - Portfolio"
+  title: "Ian Blad | HR Analytics Consultant"
   favicon: Images/favicon.png
   back-to-top-navigation: true
   repo-url: https://github.com/username/username.github.io
-  #repo-actions: [issue] #if you want to allow others to report issues on your site uncomment this line
 
   page-footer: 
     border: true
-    left: "Ian Blad 2025©"
+    left: "© 2026 Ian Blad. All rights reserved."
     right: 
       - icon: linkedin
-        href: www.linkedin.com/in/ianblad
+        href: https://www.linkedin.com/in/ianblad
+      - icon: github
+        href: https://github.com/username
 
   navbar:
-    background: primary
+    background: dark
     search: true   
-    right:
-      - text: "My Resume"
+    left:
+      - text: "Home"
+        file: index.qmd
+      - text: "About"
+        file: about.qmd
+      - text: "Resume"
         file: resume.qmd
-      - text: "Data Cleansing"
-        file: cleansing.qmd
-      - text: "Expiremental Designs"
-        file: exploration.qmd
-      - text: "Story Telling"
-        file: story_telling.qmd
-      - text: "Machine Learning"
-        file: ml.qmd
-      - text: "Full Stack"
-        file: full_stack.qmd
-      - text: "Competitions"
-        file: competition.qmd
-  
-  # learn more about navication here https://quarto.org/docs/websites/website-navigation.html
-  # comment out any of the sections below to turn off the sidebar
+      - text: "Contact"
+        file: contact.qmd
+    right:
+      - text: "Portfolio Categories"
+        menu:
+          - text: "Organizational Analysis"
+            file: Organizational_Analysis/Consulting_project.qmd
 
-  sidebar: 
-    - title: "Industrial Orginizational Analysis"
-      style: "docked"
-      background: light
-      contents:
-        - text: "Industrial Orginizational Analysis"
-          file: cleansing.qmd
-        - text: "---"
-        - text: "HR retention Rate Analysis"
-          file: Industrial_Orginizational_Analysis/Consulting_project.qmd
-        - text: "---"
-        - text: "Project 2"
-          file: Industrial_Orginizational_Analysis/project2.qmd
-        - text: "---"
-        - text: "Project 3"
-          file: Industrial_Orginizational_Analysis/project3.qmd
-        - text: "---"
-    - title: "Expiremental_Designs"
-      style: "docked"
-      background: light
-      contents:
-        - text: "Data Exploration"
-          file: exploration.qmd
-        - text: "---"
-        - text: "Project 1"
-          file: Expiremental_Designs/project1.qmd
-        - text: "---"
-        - text: "Project 2"
-          file: Expiremental_Designs/project2.qmd
-        - text: "---"
-        - text: "Project 3"
-          file: Expiremental_Designs/project3.qmd
-        - text: "---"
-    - title: "Story Telling"
-      style: "docked"
-      background: light
-      contents:
-        - text: "Story Telling"
-          file: story_telling.qmd
-        - text: "---"
-        - text: "Project 1"
-          file: Story_Telling/project1.qmd
-        - text: "---"
-        - text: "Project 2"
-          file: Story_Telling/project2.qmd
-        - text: "---"
-        - text: "Project 3"
-          file: Story_Telling/project3.qmd
-        - text: "---"
-    - title: "Machine Learning"
-      style: "docked"
-      background: light
-      contents:
-        - text: "Machine Learning"
-          file: ml.qmd
-        - text: "---"
-        - text: "Project 1"
-          file: Machine_Learning/project1.qmd
-        - text: "---"
-        - text: "Project 2"
-          file: Machine_Learning/project2.qmd
-        - text: "---"
-        - text: "Project 3"
-          file: Machine_Learning/project3.qmd
-        - text: "---"
-    - title: "Full Stack"
-      style: "docked"
-      background: light
-      contents:
-        - text: "Full Stack"
-          file: full_stack.qmd
-        - text: "---"
-        - text: "Project 1"
-          file: Full_Stack/project1.qmd
-        - text: "---"
-        - text: "Project 2"
-          file: Full_Stack/project2.qmd
-        - text: "---"
-    - title: "Competition"
-      style: "docked"
-      background: light
-      contents:
-        - text: "Competition"
-          file: competition.qmd
-        - text: "---"
-        - text: "Project 1"
-          file: Competition/project1.qmd
-        - text: "---"
-        - text: "Project 2"
-          file: Competition/project2.qmd
-        - text: "---"
-        - text: "Project 3"
-          file: Competition/project3.qmd
-        - text: "---"
+          - text: "Experimental Designs"
+            file: Experimental_Designs/exploration.qmd
 
-  
+          - text: "Data Storytelling"
+            file: Storytelling/project1.qmd
+
+          - text: "Machine Learning"
+            file: Machine_Learning/project1.qmd
+
+          - text: "Agentic AI Course"
+            file: Agentic_AI_Course/agentic_ai.qmd
+
 format:  
   html:
-    theme: #see this link to customize the theme with css (https://quarto.org/docs/output-formats/html-themes.html#dark-mode)
-      light: flatly # more themes can be found [here](https://quarto.org/docs/output-formats/html-themes.html)
+    theme: 
+      light: flatly
       dark: darkly
-      #light: cosmo
-      #dark: [cosmo, theme-dark.scss]
+    default-image-extension: png
     css: styles.css
     toc: true
-
-
-

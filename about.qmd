@@ -7,4 +7,10 @@ subtitle: "Bridging the gap between Human Resources and Advanced Analytics"
 
 Welcome! I'm Ian Blad, an Industrial-Organizational Analytics Consultant. I help organizations optimize retention, improve employee engagement, and build predictive machine learning models to maximize human capital.
 
+I love to read, here are some of my favorite books:
+- **The Best Place to Work** by Ron Friedman
+- **The Culture Code** by Daniel Coyle
+- **Drive** by Daniel Pink
+- **Maps of Meaning** by Jordan Peterson
+
 [View My Projects](Organizational_Analysis/Consulting_project.qmd) | [Let's Work Together](contact.qmd)
