@@ -1,0 +1,282 @@
+[
+  {
+    "objectID": "competition.html",
+    "href": "competition.html",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "competition.html#title-2-header",
+    "href": "competition.html#title-2-header",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "Full_Stack/project2.html",
+    "href": "Full_Stack/project2.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Industrial_Organizational_Analysis/project3.html",
+    "href": "Industrial_Organizational_Analysis/project3.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Industrial_Organizational_Analysis/Consulting_project.html",
+    "href": "Industrial_Organizational_Analysis/Consulting_project.html",
+    "title": "HR_Consulting_Project",
+    "section": "",
+    "text": "library(GGally)\nlibrary(ggplot2)\nlibrary(dbplyr)\nlibrary(mosaic)\nlibrary(ggcorrplot)\nlibrary(dplyr)\nlibrary(broom)\nlibrary(knitr)\nlibrary(pander)\n\nWe are doing a mock consulting project for a tech company that is trying to figure out how to reduce their turnover rate. The company has been around for a little more than a year and has had many very talented programmers and managers, who have left. They have a very high turnover rate and so they have sent out a survey to their employees to try and figure out what is going on. They have also sent us their HR data so we can analyze it and see if we can find any patterns that might help them.\nThe survey that was sent out is attached to this file along with the code that was used to generate the data. The survey is a Likert scale survey that asks employees about their job satisfaction, career growth perception, intent to stay, autonomy in work, and job embedness. The HR data includes information about the employees’ age, job level, salary, education, location, department, performance rating, and promotion history. The data was generated using a simulation model with well done research on the factors that influence retention in mind.\n\nset.seed(123)  # Ensuring reproducibility\nn &lt;- 537  # Number of employees\n\n# Step 1: HR-Related Data #\nage &lt;- round(rnorm(n, mean = 30, sd = 5))  \n\njob_level &lt;- sample(1:7, n, replace = TRUE, prob = c(0.1, 0.15, 0.2, 0.2, 0.15, 0.1, 0.1))\n# Varying levels of employment, from entry level to head of corporate offices.\n\nsalary &lt;- job_level * sample(5000:10000, n, replace = TRUE) + rnorm(n, mean = 20000, sd = 5000) \n# in dollars\n\neducation &lt;- sample(0:4, n, replace = TRUE, prob = c(0.05, 0.15, 0.3, 0.3, 0.2)) \n# 0=Highschool, 1=Associates, 2=Bachelors 3=Masters 4=Doctorate\n\nlocations &lt;- sample(c(\"New York\", \"San Francisco\", \"Chicago\", \"Austin\", \"Seattle\", \"Denver\", \"Miami\"), n, replace = TRUE)\n\ndepartments &lt;- sample(c(\"Engineering & Dev\", \"Product & Design\", \"IT & Security\", \"Sales & Marketing\", \"Customer & HR\", \"Leadership\"), n, replace = TRUE)\n\nperformance_ratings &lt;- sample(2:10, n, replace = TRUE, prob = c(0.05, 0.05, 0.05, 0.05, 0.1, 0.25, 0.25, 0.1, 0.1))\n\n### Step 2: Modify HR Survey Data to Use Likert Scales ###\n# Likert scale values (1 to 5)\njob_satisfaction &lt;- sample(1:5, n, replace = TRUE, prob = c(0.05, 0.15, 0.35, 0.3, 0.15))  \ncareer_growth_perception &lt;- sample(1:5, n, replace = TRUE, prob = c(0.1, 0.2, 0.4, 0.2, 0.1))\nintent_to_stay &lt;- sample(1:5, n, replace = TRUE, prob = c(0.05, 0.1, 0.3, 0.4, 0.15))\nautonomy_in_work &lt;- sample(1:5, n, replace = TRUE, prob = c(0.05, 0.1, 0.3, 0.35, 0.2))\njob_embedness &lt;- sample(1:5, n, replace = TRUE, prob = c(0.05, 0.1, 0.3, 0.35, 0.2))\n\n\n# Step 3: Calculate Retention Based on Constructs ###\n# Assuming a simple function or formula to calculate retention as you described:\nretention_probability &lt;- 0.6 + 0.4 * job_satisfaction + 0.2 * career_growth_perception + \n                         0.25 * intent_to_stay + 0.2 * autonomy_in_work + 0.3 * job_embedness\n\nretention_probability &lt;- retention_probability*.1\n\n# Apply promotion effect (23% chance of leaving within 6 months)\npromotion_history &lt;- sample(0:3, n, replace = TRUE, prob = c(0.3, 0.3, 0.2, 0.2))  # 0-3 promotions possible\npromotion_leave_probability &lt;- ifelse(promotion_history &gt; 0, 0.21, 0)\n\n# Adjust retention based on promotion history (i.e., chance of leaving)\nretention_probability &lt;- retention_probability - promotion_leave_probability\n\n# Apply low performer department and location effect (30% lower retention)\nlow_performers &lt;- performance_ratings &gt;= 2 & performance_ratings &lt;= 4  # Identifying low performers\nlow_performer_effect &lt;- 0.33  # 30% lower retention\n\nretention_probability[low_performers] &lt;- retention_probability[low_performers] * (1 - low_performer_effect)\n\n# Ensure the retention probability stays within reasonable bounds (0 to 1)\nretention_probability &lt;- pmin(pmax(retention_probability, 0), 1)\n\n# Step 4: Determine if employee leaves or stays based on retention probability\n# Generate random values to simulate whether each employee stays or leaves\nleaves &lt;- runif(n) &lt; retention_probability\n\n# Print summary to check the retention rates\n# summary(leaves)\n\n\n\n### Step 5: Compile Data Frame ###\nHR_data &lt;- data.frame(\n  Age = age,\n  Job_Level = as.factor(job_level),\n  Salary = salary,\n  Education = as.factor(education),\n  Location = as.factor(locations),\n  Department = as.factor(departments),\n  Performance_Rating = performance_ratings,\n  Promotion_History = as.factor(promotion_history),\n  Job_Satisfaction = job_satisfaction,\n  Career_Growth_Perception = career_growth_perception,\n  Intent_to_Stay = intent_to_stay,\n  Autonomy_in_Work = autonomy_in_work,\n  Job_Embedness = job_embedness,\n  Leaves = as.factor(leaves)  # Outcome variable for retention\n)\n\n\n\n\nsurvey_vars &lt;- HR_data[, c(\"Job_Satisfaction\", \"Career_Growth_Perception\", \n                                \"Intent_to_Stay\", \"Autonomy_in_Work\", \"Job_Embedness\")]\n\n# Select traditional HR variables (excluding Leaves)\ntraditional_vars &lt;- HR_data[, c(\"Age\", \"Job_Level\", \"Salary\", \"Education\", \n                                     \"Location\", \"Department\", \"Performance_Rating\", \n                                     \"Promotion_History\")]\n\n# Plot 1: Survey variables\npairs(survey_vars,\n      main = \"HR Survey Variable Relationships\",\n      col = HR_data$Leaves,\n      pch = 19, panel=panel.smooth)\n\n\n\n\n\n\n\n# Plot 2: Traditional HR variables\npairs(traditional_vars,\n      main = \"Traditional HR Variable Relationships\",\n      col = HR_data$Leaves,\n      pch = 19,panel=panel.smooth)\n\n\n\n\n\n\n\n# Logistic Regression Model\nlogit_model &lt;- glm(Leaves ~ Job_Level + Salary + Education + Location + Department + \n                   Performance_Rating + Promotion_History + Job_Satisfaction + \n                   Career_Growth_Perception, \n                   data = HR_data, family = binomial())\n\n\nsummary(logit_model) %&gt;% pander()\n\n\n\n\n\n\n\n\n\n\n\n \nEstimate\nStd. Error\nz value\nPr(&gt;|z|)\n\n\n\n\n(Intercept)\n-2.63\n0.8788\n-2.993\n0.002765\n\n\nJob_Level2\n-0.0339\n0.4255\n-0.07969\n0.9365\n\n\nJob_Level3\n-0.5179\n0.444\n-1.166\n0.2434\n\n\nJob_Level4\n-0.2992\n0.4856\n-0.6162\n0.5377\n\n\nJob_Level5\n-0.1025\n0.5575\n-0.1839\n0.8541\n\n\nJob_Level6\n-0.03234\n0.6438\n-0.05023\n0.9599\n\n\nJob_Level7\n0.233\n0.7059\n0.33\n0.7414\n\n\nSalary\n3.745e-06\n1.263e-05\n0.2965\n0.7668\n\n\nEducation1\n0.3989\n0.4691\n0.8503\n0.3952\n\n\nEducation2\n0.441\n0.4433\n0.9949\n0.3198\n\n\nEducation3\n-0.06174\n0.4448\n-0.1388\n0.8896\n\n\nEducation4\n-0.5116\n0.4821\n-1.061\n0.2886\n\n\nLocationChicago\n0.2848\n0.3798\n0.7499\n0.4533\n\n\nLocationDenver\n0.8189\n0.3737\n2.192\n0.0284\n\n\nLocationMiami\n0.1423\n0.3889\n0.366\n0.7144\n\n\nLocationNew York\n0.3867\n0.3603\n1.073\n0.2832\n\n\nLocationSan Francisco\n0.557\n0.3397\n1.639\n0.1011\n\n\nLocationSeattle\n0.7916\n0.3775\n2.097\n0.03599\n\n\nDepartmentEngineering & Dev\n-0.3839\n0.3655\n-1.05\n0.2936\n\n\nDepartmentIT & Security\n0.3577\n0.3604\n0.9926\n0.3209\n\n\nDepartmentLeadership\n-0.09095\n0.3423\n-0.2657\n0.7905\n\n\nDepartmentProduct & Design\n-0.0227\n0.3331\n-0.06813\n0.9457\n\n\nDepartmentSales & Marketing\n-0.1793\n0.3568\n-0.5025\n0.6153\n\n\nPerformance_Rating\n0.1725\n0.04949\n3.485\n0.0004918\n\n\nPromotion_History1\n-1.245\n0.2574\n-4.839\n1.304e-06\n\n\nPromotion_History2\n-1.184\n0.2745\n-4.313\n1.612e-05\n\n\nPromotion_History3\n-1.288\n0.3039\n-4.24\n2.234e-05\n\n\nJob_Satisfaction\n0.1617\n0.09275\n1.743\n0.08135\n\n\nCareer_Growth_Perception\n0.1912\n0.09209\n2.077\n0.03782\n\n\n\n(Dispersion parameter for binomial family taken to be 1 )\n\n\n\n\n\n\n\nNull deviance:\n696.6 on 536 degrees of freedom\n\n\nResidual deviance:\n619.8 on 508 degrees of freedom\n\n\n\n\n# Predicted probabilities\nHR_data$predicted_prob &lt;- predict(logit_model, type = \"response\")\n\n# Make predictions (Threshold = 0.5 for leave/stay decision)\nHR_data$predicted_leave &lt;- ifelse(HR_data$predicted_prob &gt; 0.5, 1, 0)\n\n# Compare actual vs predicted\n#table(HR_data$Leaves, HR_data$predicted_leave)\n\nWe performed a Logistic regression analysis to predict the likelihood of employees leaving based on various factors. The model includes both traditional HR variables (like job level, salary, education, etc.) and survey-based variables (like job satisfaction, career growth perception, etc.). Most of the questions in the survey were not very useful in predicting turnover but we did find that the Job Satisfaction, Career Growth Perception, and Intent to Stay slightly helped predict retention.\n\n# Create a plot to show the relationship between promotion history and predicted probability of leaving\nggplot(HR_data, aes(x = Promotion_History, y = predicted_prob)) +\n  geom_boxplot()+  # Scatter plot points\n  geom_smooth(method = \"loess\", color = 'red', se = FALSE) +  # Loess smoother to show trend\n  labs(\n    title = \"Relationship between Promotion History and Probability of Leaving\",\n    x = \"Promotion History (Number of Promotions)\",\n    y = \"Predicted Probability of Leaving\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\n\nAfter looking at the pairs plot, we noticed that Promotion History seems to have a very high correlation with leaving for some reason. After some research we found that a study done in 2023 that analyzed the job histories of more than 1.2 million people in the United States working for companies that employed at least a thousand people looking at the years 2019 through 2022. They found that within the first 6 months of promotion, employees are 23% more likely to leave their job than employees who have not been promoted (Who had a 18% chance). Employees at high risk of leaving right after promotion were those who did not spend too much time preparing for their new role (employees who were promoted but spent a lot of time in preperation did not have near as high turnover rate as those who did not prepare). The company who we are currently analyzing has a very high promotion rate (23% of employees were promoted in the last year) and many of them were promoted multiple times. This tells us they were not spending enough time in preperation for their new roles and were high risk of leaving. If we increased the time and preperation between the promotions we could reduce the turnover rate of promoted employees by 9% and 4.5% overall.\n\ncor_data &lt;- HR_data %&gt;%\n  select(Leaves, Job_Satisfaction, Career_Growth_Perception, Intent_to_Stay, Autonomy_in_Work, Job_Embedness)\n\ncor_data$Leaves &lt;- as.numeric(cor_data$Leaves)\n\ncor_matrix &lt;- cor(cor_data)\n\nggcorrplot(cor_matrix, \n           method = \"circle\", \n           type = \"lower\", \n           lab = TRUE, \n           lab_size = 4, \n           colors = c(\"#B2182B\", \"white\", \"#2166AC\"), \n           title = \"Correlation of HR Survey Factors with Leaving\", \n           ggtheme = theme_minimal())\n\n\n\n\n\n\n\n\nWhen we run a correlation analysis on the HR questions we find that the only correlations we find are quite weak if existant at all. This is probably due to the fact that data collected by surveys aimed at predicting turnover is not always very accurate but still give us a good idea of how the employees feel about their jobs. Work done by researchers like Daniel Khaneman has showed us that surveys tend to show us how people are feeling in the moment and not how they feel about their job overall. This can be counteracted by having employees take surveys at random different times and then aggregating the data. If we did this we would probably find much stronger correlations.\nNow lets validate our model. Here is a predicted vs actual plot of the data.\n\n# Load necessary libraries\n\n\n# Logistic regression model (assuming it has already been fit)\nlogit_model &lt;- glm(Leaves ~ Job_Level + Salary + Education + Location + Department + \n                   Performance_Rating + Promotion_History + Job_Satisfaction + \n                   Career_Growth_Perception + Intent_to_Stay + Autonomy_in_Work + \n                   Job_Embedness, \n                   data = HR_data, family = binomial())\n\n# Predicted probabilities\nHR_data$predicted_prob &lt;- predict(logit_model, type = \"response\")\n\n\nset.seed(121)\n\n# Split the data into training and testing sets (60% training, 40% testing)\nn &lt;- nrow(HR_data)  # Use your HR dataset here\nkeep &lt;- sample(1:n, size = floor(0.6 * n))  # Randomly sample 60% of data for training\nmytrain &lt;- HR_data[keep, ]\nmytest &lt;- HR_data[-keep, ]\n\n# Train the logistic regression model using the training set\nlogit_model_train &lt;- glm(Leaves ~ Job_Level + Salary + Education + Location + Department + \n                         Performance_Rating + Promotion_History + Job_Satisfaction + \n                         Career_Growth_Perception + Intent_to_Stay + Autonomy_in_Work + \n                         Job_Embedness, \n                         data = mytrain, family = binomial())\n\n# Make predictions on the test set\nmypreds &lt;- predict(logit_model_train, mytest, type = \"response\")\n\n# Choose a threshold (e.g., 0.5 for binary classification)\ncallit &lt;- ifelse(mypreds &gt; 0.5, 1, 0)\n\n# Calculate accuracy (percentage of correct predictions)\nmytest$Leaves &lt;- ifelse(mytest$Leaves == \"Yes\", 1, 0)  # Or TRUE/FALSE\n\ncorrect_predictions &lt;- sum(mytest$Leaves == as.factor(callit))\ntotal_predictions &lt;- length(mytest$Leaves)\naccuracy &lt;- correct_predictions / total_predictions\naccuracy  # Display the accuracy of the model on the test set\n\n[1] 0.7581395\n\n# Optionally, you can output a confusion matrix to visualize the results\n#table(mytest$Leaves, callit)\n\n\nlibrary(dplyr)\n\n# Add a column to test set marking correct vs incorrect\nmytest$Correct &lt;- ifelse(mytest$Leaves == callit, \"Correct\", \"Incorrect\")\n\n# Count the number in each category\naccuracy_counts &lt;- mytest %&gt;%\n  count(Correct)\n\n# Plot with counts labeled\nggplot(accuracy_counts, aes(x = Correct, y = n, fill = Correct)) +\n  geom_bar(stat = \"identity\", width = 0.6) +\n  geom_text(aes(label = n), vjust = -.3, size = 4, fontface = \"bold\") +\n  scale_fill_manual(values = c(\"Correct\" = \"#4CAF50\", \"Incorrect\" = \"#F44336\")) +\n  labs(title = \"Prediction Accuracy: Logistic Regression\",\n       x = \"Prediction Outcome\",\n       y = \"Count of Employees\") +\n  theme_minimal(base_size = 14) +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\nThis graph shows the accuracy of our model. The model is 0.758% accurate which is very good for a model like this. This is mostly because of the promotion effect we saw earlier but we also the subtle effects saw by our survey.\nIf we were to increase the time between promotions by 6 months we would see a 9% decrease in turnover rate of promoted employees and a 4.5% decrease in overall turnover rate. This would be a very good thing for the company as it would save them a lot of money in hiring and training new employees. We can also change our survey to be more accurate by having employees take surveys at random different times and then aggregating the data. This would give us a much better idea of how the employees feel about their jobs and would help us to make better decisions in the future.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Competition/project3.html",
+    "href": "Competition/project3.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Competition/project1.html",
+    "href": "Competition/project1.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Expiremental_Designs/project2.html",
+    "href": "Expiremental_Designs/project2.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "story_telling.html",
+    "href": "story_telling.html",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "story_telling.html#title-2-header",
+    "href": "story_telling.html#title-2-header",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Data-Driven Workforce Solutions",
+    "section": "",
+    "text": "Welcome! I’m Ian Blad, an Industrial-Organizational Analytics Consultant. I help organizations optimize retention, improve employee engagement, and build predictive machine learning models to maximize human capital.\nI love to read, here are some of my favorite books: - The Best Place to Work by Ron Friedman - The Culture Code by Daniel Coyle - Drive by Daniel Pink - Maps of Meaning by Jordan Peterson\nView My Projects | Let’s Work Together"
+  },
+  {
+    "objectID": "about.html#transforming-people-data-into-business-strategy",
+    "href": "about.html#transforming-people-data-into-business-strategy",
+    "title": "Data-Driven Workforce Solutions",
+    "section": "",
+    "text": "Welcome! I’m Ian Blad, an Industrial-Organizational Analytics Consultant. I help organizations optimize retention, improve employee engagement, and build predictive machine learning models to maximize human capital.\nI love to read, here are some of my favorite books: - The Best Place to Work by Ron Friedman - The Culture Code by Daniel Coyle - Drive by Daniel Pink - Maps of Meaning by Jordan Peterson\nView My Projects | Let’s Work Together"
+  },
+  {
+    "objectID": "Machine_Learning/project3.html",
+    "href": "Machine_Learning/project3.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Machine_Learning/project1.html",
+    "href": "Machine_Learning/project1.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Ian Blad",
+    "section": "",
+    "text": "4698738496\n\nianblad@gmail.com | www.linkedin.com/in/ianblad\n\n\n\n\n\nBrigham Young University - Idaho Rexburg, Idaho\n• Gained foundational knowledge in organizational behavior, and personnel selection • Conducted multiple extensive literature reviews in belonging, retention, the OCEAN personality model and cognitive dissonance. • Developed strong research skills through coursework in statistics, experimental design, and data analysis forming Data Science Minor and a Statistics Certificate • Mastered skills in Statistical analysis, R, Python, SQL, Microsoft Excel, PowerPoint, Word and GitHub\n\n\n\n\n\n\nHydroMax USA Flower Mound, Texas • Created an automated employee evaluation system projected to save hundreds of management hours yearly • Executed multiple analysis in employee turnover, recruiter effectiveness and industry standards in HR metrics using R and Python tools\n\n\n\nChurch Of Jesus Christ of Latter-day Saints Scotland / Ireland • Trained several teams sized from 8-30 people every few months • Gave presentations and taught skills weekly, and promoted well-being in various leadership positions\n\n\n\n\n\n\nBYUI Data Science Society Rexburg, Idaho • Created a web scraper to retrieve data on MILB games relevant to attendance and promotions • Utilized statistical tools such as ANOVA testing and multiple adjustments to gain insights predicted to dramatically increase attendance\n\n\n\nEntrepreneurial Rexburg, Idaho • Designing agentic AI and web scraper, will automate job of a drafter in septic design process • Aiming to reduce a 7 hour work process to a 30 minute process\n\n\n\nBrigham Young University Idaho Rexburg, Idaho • Conducted literature review with faculty members on student belonging / retention • Findings will support a university-wide initiative to improve inclusion and engagement"
+  },
+  {
+    "objectID": "resume.html#education",
+    "href": "resume.html#education",
+    "title": "Ian Blad",
+    "section": "",
+    "text": "Brigham Young University - Idaho Rexburg, Idaho\n• Gained foundational knowledge in organizational behavior, and personnel selection • Conducted multiple extensive literature reviews in belonging, retention, the OCEAN personality model and cognitive dissonance. • Developed strong research skills through coursework in statistics, experimental design, and data analysis forming Data Science Minor and a Statistics Certificate • Mastered skills in Statistical analysis, R, Python, SQL, Microsoft Excel, PowerPoint, Word and GitHub"
+  },
+  {
+    "objectID": "resume.html#professional-experience",
+    "href": "resume.html#professional-experience",
+    "title": "Ian Blad",
+    "section": "",
+    "text": "HydroMax USA Flower Mound, Texas • Created an automated employee evaluation system projected to save hundreds of management hours yearly • Executed multiple analysis in employee turnover, recruiter effectiveness and industry standards in HR metrics using R and Python tools\n\n\n\nChurch Of Jesus Christ of Latter-day Saints Scotland / Ireland • Trained several teams sized from 8-30 people every few months • Gave presentations and taught skills weekly, and promoted well-being in various leadership positions"
+  },
+  {
+    "objectID": "resume.html#key-projects",
+    "href": "resume.html#key-projects",
+    "title": "Ian Blad",
+    "section": "",
+    "text": "BYUI Data Science Society Rexburg, Idaho • Created a web scraper to retrieve data on MILB games relevant to attendance and promotions • Utilized statistical tools such as ANOVA testing and multiple adjustments to gain insights predicted to dramatically increase attendance\n\n\n\nEntrepreneurial Rexburg, Idaho • Designing agentic AI and web scraper, will automate job of a drafter in septic design process • Aiming to reduce a 7 hour work process to a 30 minute process\n\n\n\nBrigham Young University Idaho Rexburg, Idaho • Conducted literature review with faculty members on student belonging / retention • Findings will support a university-wide initiative to improve inclusion and engagement"
+  },
+  {
+    "objectID": "exploration.html",
+    "href": "exploration.html",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "exploration.html#title-2-header",
+    "href": "exploration.html#title-2-header",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "Story_Telling/project3.html",
+    "href": "Story_Telling/project3.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Story_Telling/project1.html",
+    "href": "Story_Telling/project1.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Story_Telling/project2.html",
+    "href": "Story_Telling/project2.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Agentic_AI_Course/agentic_ai.html",
+    "href": "Agentic_AI_Course/agentic_ai.html",
+    "title": "Ian Blad | HR Analytics Consultant",
+    "section": "",
+    "text": "Back to top"
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Let’s Solve Your People Problems",
+    "section": "",
+    "text": "Whether you need a full-scale workforce attrition analysis or a custom dashboard, I’m here to help.\n\nEmail: ianblad2@gmail.com\nLinkedIn: Connect with me on LinkedIn\n\nAlternatively, feel free to drop me a message directly via LinkedIn InMail for consulting inquiries.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "cleansing.html",
+    "href": "cleansing.html",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "cleansing.html#title-2-header",
+    "href": "cleansing.html#title-2-header",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "Machine_Learning/project2.html",
+    "href": "Machine_Learning/project2.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data-Driven Workforce Solutions",
+    "section": "",
+    "text": "Welcome! I’m Ian Blad, an Industrial-Organizational Analytics Consultant. I help organizations optimize retention, improve employee engagement, and build predictive machine learning models to maximize human capital.\nView My Projects | Let’s Work Together"
+  },
+  {
+    "objectID": "index.html#transforming-people-data-into-business-strategy",
+    "href": "index.html#transforming-people-data-into-business-strategy",
+    "title": "Data-Driven Workforce Solutions",
+    "section": "",
+    "text": "Welcome! I’m Ian Blad, an Industrial-Organizational Analytics Consultant. I help organizations optimize retention, improve employee engagement, and build predictive machine learning models to maximize human capital.\nView My Projects | Let’s Work Together"
+  },
+  {
+    "objectID": "ml.html",
+    "href": "ml.html",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "ml.html#title-2-header",
+    "href": "ml.html#title-2-header",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "Expiremental_Designs/project1.html",
+    "href": "Expiremental_Designs/project1.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Expiremental_Designs/project3.html",
+    "href": "Expiremental_Designs/project3.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Competition/project2.html",
+    "href": "Competition/project2.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Industrial_Organizational_Analysis/project1.html",
+    "href": "Industrial_Organizational_Analysis/project1.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Industrial_Organizational_Analysis/project2.html",
+    "href": "Industrial_Organizational_Analysis/project2.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "Full_Stack/project1.html",
+    "href": "Full_Stack/project1.html",
+    "title": "Client Report - [Insert Project Title]",
+    "section": "",
+    "text": "Paste in a template\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "full_stack.html",
+    "href": "full_stack.html",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  },
+  {
+    "objectID": "full_stack.html#title-2-header",
+    "href": "full_stack.html#title-2-header",
+    "title": "about me",
+    "section": "",
+    "text": "MarkDown Basics"
+  }
+]
