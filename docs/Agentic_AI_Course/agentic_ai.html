@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>agentic_ai – Ian Blad | HR Analytics Consultant</title>
+<title>This is a Part of an Agentic AI Course Developed for DS 295R Agent Engineering at BYUI – Ian Blad | HR Analytics Consultant</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -264,6 +299,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../services.html"> 
+<span class="menu-text">New Leaf Services</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
@@ -271,32 +310,18 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../resume.html"> 
 <span class="menu-text">Resume</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../contact.html"> 
-<span class="menu-text">Contact</span></a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-portfolio-categories" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Portfolio Categories</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects-portfolio" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projects Portfolio</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-portfolio-categories">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-projects-portfolio">    
         <li>
-    <a class="dropdown-item" href="../Organizational_Analysis/Consulting_project.qmd">
+    <a class="dropdown-item" href="../Streamlining_Data/streamlining_data.html">
+ <span class="dropdown-text">Streamlining Data</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Organizational_Analysis/Consulting_Project.html">
  <span class="dropdown-text">Organizational Analysis</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Experimental_Designs/exploration.qmd">
- <span class="dropdown-text">Experimental Designs</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Storytelling/project1.qmd">
- <span class="dropdown-text">Data Storytelling</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../Machine_Learning/project1.html">
- <span class="dropdown-text">Machine Learning</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../Agentic_AI_Course/agentic_ai.html">
@@ -304,6 +329,12 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -313,21 +344,589 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#multi-agents-subagents-handoffs-and-more" id="toc-multi-agents-subagents-handoffs-and-more" class="nav-link active" data-scroll-target="#multi-agents-subagents-handoffs-and-more">Multi-Agents: Subagents, Handoffs, and More</a></li>
+  <li><a href="#outcomes" id="toc-outcomes" class="nav-link" data-scroll-target="#outcomes">Outcomes</a></li>
+  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation">Preparation</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#class" id="toc-class" class="nav-link" data-scroll-target="#class">Class</a></li>
+  <li><a href="#lesson-overview" id="toc-lesson-overview" class="nav-link" data-scroll-target="#lesson-overview">Lesson Overview</a></li>
+  <li><a href="#the-problem-when-one-agent-fails" id="toc-the-problem-when-one-agent-fails" class="nav-link" data-scroll-target="#the-problem-when-one-agent-fails">The Problem: When One Agent Fails</a>
+  <ul class="collapse">
+  <li><a href="#try-this-as-one-agent" id="toc-try-this-as-one-agent" class="nav-link" data-scroll-target="#try-this-as-one-agent">Try this as ONE agent:</a></li>
+  </ul></li>
+  <li><a href="#the-real-use-case-research-pipeline-system" id="toc-the-real-use-case-research-pipeline-system" class="nav-link" data-scroll-target="#the-real-use-case-research-pipeline-system">The Real Use Case: Research Pipeline System</a>
+  <ul class="collapse">
+  <li><a href="#why-this-cannot-be-one-agent" id="toc-why-this-cannot-be-one-agent" class="nav-link" data-scroll-target="#why-this-cannot-be-one-agent">Why This CANNOT Be One Agent</a></li>
+  </ul></li>
+  <li><a href="#guided-coding-real-multi-agent-system" id="toc-guided-coding-real-multi-agent-system" class="nav-link" data-scroll-target="#guided-coding-real-multi-agent-system">Guided Coding: Real Multi-Agent System</a>
+  <ul class="collapse">
+  <li><a href="#step-1-create-specialized-subagents-tools" id="toc-step-1-create-specialized-subagents-tools" class="nav-link" data-scroll-target="#step-1-create-specialized-subagents-tools">Step 1: Create Specialized Subagents &amp; Tools</a>
+  <ul class="collapse">
+  <li><a href="#we-are-going-to-include-a-simple-local-folder-reader-that-can-read-data-inside-a-folder-called-student-data-you-can-change-this-if-you-would-like.-you-will-have-to-create-this-folder-and-add-files-to-it-for-the-tool-to-work." id="toc-we-are-going-to-include-a-simple-local-folder-reader-that-can-read-data-inside-a-folder-called-student-data-you-can-change-this-if-you-would-like.-you-will-have-to-create-this-folder-and-add-files-to-it-for-the-tool-to-work." class="nav-link" data-scroll-target="#we-are-going-to-include-a-simple-local-folder-reader-that-can-read-data-inside-a-folder-called-student-data-you-can-change-this-if-you-would-like.-you-will-have-to-create-this-folder-and-add-files-to-it-for-the-tool-to-work.">We are going to include a simple local folder reader that can read data inside a folder called “student data” you can change this if you would like. You will have to create this folder and add files to it for the tool to work.</a></li>
+  <li><a href="#these-are-very-simple-agents.-they-just-call-the-llm-with-a-specific-system-prompt-and-tools.-they-could-be-made-much-more-complex-with-memory-tool-use-etc.-but-this-is-the-basic-structure." id="toc-these-are-very-simple-agents.-they-just-call-the-llm-with-a-specific-system-prompt-and-tools.-they-could-be-made-much-more-complex-with-memory-tool-use-etc.-but-this-is-the-basic-structure." class="nav-link" data-scroll-target="#these-are-very-simple-agents.-they-just-call-the-llm-with-a-specific-system-prompt-and-tools.-they-could-be-made-much-more-complex-with-memory-tool-use-etc.-but-this-is-the-basic-structure.">These are very simple agents. They just call the LLM with a specific system prompt and tools. They could be made much more complex with memory, tool use, etc. but this is the basic structure.</a></li>
+  </ul></li>
+  <li><a href="#step-2-wrap-as-tools" id="toc-step-2-wrap-as-tools" class="nav-link" data-scroll-target="#step-2-wrap-as-tools">Step 2: Wrap as Tools</a>
+  <ul class="collapse">
+  <li><a href="#now-we-wrap-each-agent-as-a-tool-that-the-manager-can-call.-this-keeps-their-contexts-separate-and-allows-the-manager-to-control-the-flow." id="toc-now-we-wrap-each-agent-as-a-tool-that-the-manager-can-call.-this-keeps-their-contexts-separate-and-allows-the-manager-to-control-the-flow." class="nav-link" data-scroll-target="#now-we-wrap-each-agent-as-a-tool-that-the-manager-can-call.-this-keeps-their-contexts-separate-and-allows-the-manager-to-control-the-flow.">Now we wrap each agent as a tool that the manager can call. This keeps their contexts separate and allows the manager to control the flow.</a></li>
+  </ul></li>
+  <li><a href="#step-3-create-manager-agent" id="toc-step-3-create-manager-agent" class="nav-link" data-scroll-target="#step-3-create-manager-agent">Step 3: Create Manager Agent</a>
+  <ul class="collapse">
+  <li><a href="#notice-how-the-manager-agent-has-the-subagents-in-their-tools.-the-system-prompt-is-very-important-for-the-manager-to-understand-what-its-supposed-to-do." id="toc-notice-how-the-manager-agent-has-the-subagents-in-their-tools.-the-system-prompt-is-very-important-for-the-manager-to-understand-what-its-supposed-to-do." class="nav-link" data-scroll-target="#notice-how-the-manager-agent-has-the-subagents-in-their-tools.-the-system-prompt-is-very-important-for-the-manager-to-understand-what-its-supposed-to-do.">Notice how the manager agent has the subagents in their tools. The system prompt is very important for the manager to understand what its supposed to do.</a></li>
+  </ul></li>
+  <li><a href="#step-4-run-it" id="toc-step-4-run-it" class="nav-link" data-scroll-target="#step-4-run-it">Step 4: Run It</a></li>
+  <li><a href="#activity-make-this-multi-agent-better" id="toc-activity-make-this-multi-agent-better" class="nav-link" data-scroll-target="#activity-make-this-multi-agent-better">Activity: Make This Multi-Agent Better</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content column-page-left" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">This is a Part of an Agentic AI Course Developed for DS 295R Agent Engineering at BYUI</h1>
+<p class="subtitle lead">Unit 1, Lesson 8</p>
+</div>
 
 
 
+<div class="quarto-title-meta column-page-left">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<section id="multi-agents-subagents-handoffs-and-more" class="level2">
+<h2 class="anchored" data-anchor-id="multi-agents-subagents-handoffs-and-more">Multi-Agents: Subagents, Handoffs, and More</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Quick Links</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Before Class</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">After Class</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Practice</th>
+<th>Primer</th>
+<th>Slides</th>
+<th>Examples</th>
+<th>Lecture Notes</th>
+<th>Next Lesson</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="../practice/practice1_8.qmd">🏃‍♂️‍➡️</a></td>
+<td><a href="../primers/primer1_8.qmd">🌱</a></td>
+<td><a href="../lecture_slides/slide1_8.qmd">🧑‍🏫</a></td>
+<td><a href="?var:example_base1_8.ipynb" title="Opens in Google Colab - See README if broken">📓</a></td>
+<td><a href="../instructor_notes/notes1_8.qmd">📋</a></td>
+<td><a href="lesson1_9.qmd">➡️</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Practice</th>
+<th>Primer</th>
+<th>Previous Lesson</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="../practice/practice1_7.qmd">🏃‍♂️‍➡️</a></td>
+<td><a href="../primers/primer1_8.qmd">🌱</a></td>
+<td><a href="lesson1_7.qmd">⬅️</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Practice</th>
+<th>Primer</th>
+<th>Next Lesson</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="../practice/practice1_8.qmd">🏃‍♂️‍➡️</a></td>
+<td><a href="../primers/primer1_9.qmd">🌱</a></td>
+<td><a href="lesson1_9.qmd">➡️</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="outcomes" class="level1">
+<h1>Outcomes</h1>
+<p>Multi-Agent Systems - Understand what multi-agent systems are and when they are necessary - Identify when a single agent fails and multi-agents succeed - Build a realistic multi-agent research pipeline - Create a multi-agent system using subagents in LangChain</p>
+</section>
+<section id="preparation" class="level1">
+<h1>Preparation</h1>
+<ul>
+<li>Review single-agent + tools from previous lessons</li>
+<li>Think about:
+<ul>
+<li>What happens when a task has multiple <em>distinct phases</em>?</li>
+<li>What happens when you need <em>verification</em> or <em>parallel work</em>?</li>
+</ul></li>
+</ul>
+</section>
+<section id="discussion" class="level1">
+<h1>Discussion</h1>
+<ol type="1">
+<li>Report on work accomplished<br>
+</li>
+<li>Key takeaways<br>
+</li>
+<li>Questions unaddressed<br>
+</li>
+<li>Optional discussion questions
+<ul>
+<li>When would a single agent <em>break</em> on a complex task?</li>
+<li>What real-world jobs naturally split into multiple roles?</li>
+<li>Why might separating roles improve reliability?<br>
+</li>
+</ul></li>
+<li>Log partner’s contribution</li>
+</ol>
+</section>
+<section id="class" class="level1">
+<h1>Class</h1>
+</section>
+<section id="lesson-overview" class="level1">
+<h1>Lesson Overview</h1>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Segment</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Lecture: When Multi-Agents Are Necessary</td>
+<td>15 minutes</td>
+</tr>
+<tr class="even">
+<td>Concept: Subagents Deep Dive</td>
+<td>15 minutes</td>
+</tr>
+<tr class="odd">
+<td>Guided Coding: Research Pipeline</td>
+<td>25 minutes</td>
+</tr>
+<tr class="even">
+<td>Activity: Build Your Own System</td>
+<td>20+ minutes</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="the-problem-when-one-agent-fails" class="level1">
+<h1>The Problem: When One Agent Fails</h1>
+<p>Let’s look at a realistic task:</p>
+<blockquote class="blockquote">
+<p>“Research AI trends in 2026, evaluate the most important ones, and write a professional report with sources.”</p>
+</blockquote>
+<section id="try-this-as-one-agent" class="level3">
+<h3 class="anchored" data-anchor-id="try-this-as-one-agent">Try this as ONE agent:</h3>
+<ul>
+<li>It must:
+<ul>
+<li>Search</li>
+<li>Evaluate sources</li>
+<li>Decide importance</li>
+<li>Write clearly</li>
+<li>Cite correctly</li>
+</ul></li>
+</ul>
+<p>👉 This usually results in: - Weak sourcing<br>
+- Hallucinated facts<br>
+- Mixed reasoning + writing<br>
+- No clear failure point</p>
+<hr>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Key Insight
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A single agent must do <strong>everything in one context window</strong>.</p>
+<p>This creates: - Cognitive overload<br>
+- Poor specialization<br>
+- No separation of concerns</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="the-real-use-case-research-pipeline-system" class="level1">
+<h1>The Real Use Case: Research Pipeline System</h1>
+<p>This is where multi-agents shine.</p>
+<p>Real systems (like production research tools) use a structure like this:</p>
+<ul>
+<li><strong>Planner Agent</strong> → breaks task into subtopics<br>
+</li>
+<li><strong>Research Agents</strong> → gather information (parallel)<br>
+</li>
+<li><strong>Analyst Agent</strong> → evaluates and compares findings<br>
+</li>
+<li><strong>Writer Agent</strong> → produces final report</li>
+</ul>
+<p>This pattern is widely used because: - Tasks are <strong>naturally separable</strong> - Work can be <strong>parallelized</strong> - Each agent has <strong>focused context</strong> <a href="https://www.anthropic.com/engineering/built-multi-agent-research-system?utm_source=chatgpt.com">oai_citation:0‡Anthropic</a></p>
+<hr>
+<section id="why-this-cannot-be-one-agent" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-cannot-be-one-agent">Why This CANNOT Be One Agent</h2>
+<p>If you try to force this into one agent:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Problem</th>
+<th>Why it Happens</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hallucinated sources</td>
+<td>No separation between retrieval and writing</td>
+</tr>
+<tr class="even">
+<td>Weak reasoning</td>
+<td>Mixing analysis + writing</td>
+</tr>
+<tr class="odd">
+<td>Context overload</td>
+<td>Too many responsibilities</td>
+</tr>
+<tr class="even">
+<td>No debugging</td>
+<td>You don’t know which step failed</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="guided-coding-real-multi-agent-system" class="level1">
+<h1>Guided Coding: Real Multi-Agent System</h1>
+<p>We will build:</p>
+<p>👉 A <strong>Research Pipeline System</strong></p>
+<ul>
+<li>Research Agent<br>
+</li>
+<li>Analyst Agent<br>
+</li>
+<li>Writer Agent<br>
+</li>
+<li>Manager Agent (controls everything)</li>
+</ul>
+<hr>
+<section id="step-1-create-specialized-subagents-tools" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-create-specialized-subagents-tools">Step 1: Create Specialized Subagents &amp; Tools</h2>
+<section id="we-are-going-to-include-a-simple-local-folder-reader-that-can-read-data-inside-a-folder-called-student-data-you-can-change-this-if-you-would-like.-you-will-have-to-create-this-folder-and-add-files-to-it-for-the-tool-to-work." class="level3">
+<h3 class="anchored" data-anchor-id="we-are-going-to-include-a-simple-local-folder-reader-that-can-read-data-inside-a-folder-called-student-data-you-can-change-this-if-you-would-like.-you-will-have-to-create-this-folder-and-add-files-to-it-for-the-tool-to-work.">We are going to include a simple local folder reader that can read data inside a folder called “student data” you can change this if you would like. You will have to create this folder and add files to it for the tool to work.</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Add tools at the end of this block</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.agents <span class="im">import</span> create_agent</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.tools <span class="im">import</span> tool</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>load_dotenv()</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: print to verify (should NOT be None)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(os.getenv(<span class="st">"GEMINI_API_KEY"</span>))</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.tools <span class="im">import</span> tool</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>STUDENT_DATA_DIR <span class="op">=</span> <span class="st">"student_data"</span> <span class="co"># this is where the directory is</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="at">@tool</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_student_files(query: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">    Reads all files in student_data/ and returns their contents.</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">    The query is ignored for now (simple version).</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> os.path.exists(STUDENT_DATA_DIR):</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"student_data folder not found."</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    all_text <span class="op">=</span> []</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> fname <span class="kw">in</span> os.listdir(STUDENT_DATA_DIR):</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        path <span class="op">=</span> os.path.join(STUDENT_DATA_DIR, fname)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> os.path.isfile(path):</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">with</span> <span class="bu">open</span>(path, <span class="st">"r"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>, errors<span class="op">=</span><span class="st">"ignore"</span>) <span class="im">as</span> f:</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>                content <span class="op">=</span> f.read()</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>            all_text.append(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">--- </span><span class="sc">{</span>fname<span class="sc">}</span><span class="ss"> ---</span><span class="ch">\n</span><span class="sc">{</span>content<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>            all_text.append(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">--- </span><span class="sc">{</span>fname<span class="sc">}</span><span class="ss"> ---</span><span class="ch">\n</span><span class="ss">ERROR: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>.join(all_text)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="these-are-very-simple-agents.-they-just-call-the-llm-with-a-specific-system-prompt-and-tools.-they-could-be-made-much-more-complex-with-memory-tool-use-etc.-but-this-is-the-basic-structure." class="level3">
+<h3 class="anchored" data-anchor-id="these-are-very-simple-agents.-they-just-call-the-llm-with-a-specific-system-prompt-and-tools.-they-could-be-made-much-more-complex-with-memory-tool-use-etc.-but-this-is-the-basic-structure.">These are very simple agents. They just call the LLM with a specific system prompt and tools. They could be made much more complex with memory, tool use, etc. but this is the basic structure.</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Research Agent</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>research_agent <span class="op">=</span> create_agent(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"google_genai:gemini-2.5-flash"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    system_prompt<span class="op">=</span><span class="st">"""</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">You are a research agent.</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">ONLY gather facts.</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">- No opinions</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">- No summaries</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st">- Return bullet points</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    tools <span class="op">=</span> [read_student_files] <span class="co"># add real tools here</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyst Agent</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>analysis_agent <span class="op">=</span> create_agent(</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"google_genai:gemini-2.5-flash"</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    system_prompt<span class="op">=</span><span class="st">"""</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="st">You are an analyst.</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="st">Take research and:</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="st">- Identify key insights</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="st">- Compare ideas</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="st">- Rank importance</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Writer Agent</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>writer_agent <span class="op">=</span> create_agent(</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"google_genai:gemini-2.5-flash"</span>,</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    system_prompt<span class="op">=</span><span class="st">"""</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="st">You are a professional writer.</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="st">Turn analysis into:</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="st">- Clear report</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="st">- Well structured</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="st">- Professional tone</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>⸻</p>
+</section>
+</section>
+<section id="step-2-wrap-as-tools" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-wrap-as-tools">Step 2: Wrap as Tools</h2>
+<section id="now-we-wrap-each-agent-as-a-tool-that-the-manager-can-call.-this-keeps-their-contexts-separate-and-allows-the-manager-to-control-the-flow." class="level3">
+<h3 class="anchored" data-anchor-id="now-we-wrap-each-agent-as-a-tool-that-the-manager-can-call.-this-keeps-their-contexts-separate-and-allows-the-manager-to-control-the-flow.">Now we wrap each agent as a tool that the manager can call. This keeps their contexts separate and allows the manager to control the flow.</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">@tool</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> do_research(query: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Gather raw information"""</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> research_agent.invoke({</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"messages"</span>: [{<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: query}]</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result[<span class="st">"messages"</span>][<span class="op">-</span><span class="dv">1</span>].content</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="at">@tool</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> do_analysis(data: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Analyze research"""</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> analysis_agent.invoke({</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">"messages"</span>: [{<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: data}]</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result[<span class="st">"messages"</span>][<span class="op">-</span><span class="dv">1</span>].content</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="at">@tool</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> do_writing(data: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Write final report"""</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> writer_agent.invoke({</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">"messages"</span>: [{<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: data}]</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result[<span class="st">"messages"</span>][<span class="op">-</span><span class="dv">1</span>].content</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>⸻</p>
+</section>
+</section>
+<section id="step-3-create-manager-agent" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-create-manager-agent">Step 3: Create Manager Agent</h2>
+<section id="notice-how-the-manager-agent-has-the-subagents-in-their-tools.-the-system-prompt-is-very-important-for-the-manager-to-understand-what-its-supposed-to-do." class="level3">
+<h3 class="anchored" data-anchor-id="notice-how-the-manager-agent-has-the-subagents-in-their-tools.-the-system-prompt-is-very-important-for-the-manager-to-understand-what-its-supposed-to-do.">Notice how the manager agent has the subagents in their tools. The system prompt is very important for the manager to understand what its supposed to do.</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>manager <span class="op">=</span> create_agent(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"google_genai:gemini-2.5-flash"</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    system_prompt<span class="op">=</span><span class="st">"""</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">You are a manager coordinating a research pipeline.</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="st">Steps:</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">1. Call do_research</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="st">2. Pass result to do_analysis</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="st">3. Pass result to do_writing</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="st">After do_writing finishes, RETURN ONLY the exact text output from do_writing as the final answer.</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="st">Do not add any extra commentary or status text.</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    tools<span class="op">=</span>[do_research, do_analysis, do_writing]</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>⸻</p>
+</section>
+</section>
+<section id="step-4-run-it" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-run-it">Step 4: Run It</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> manager.invoke({</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"messages"</span>: [</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"role"</span>: <span class="st">"user"</span>, <span class="st">"content"</span>: <span class="st">"Go into student files and write a study guide based on the contents."</span>}</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(response[<span class="st">"messages"</span>][<span class="op">-</span><span class="dv">1</span>].content)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>⸻</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What Just Happened? • Each agent had one responsibility • Context stayed clean and focused • The system became: • More reliable • More explainable • Easier to improve</p>
+<p>This is why multi-agents exist.</p>
+</div>
+</div>
+<p>⸻</p>
+<p>Why This Example Matters</p>
+<p>This pattern is used in: • Research assistants • Coding agents • Business intelligence systems • Market analysis tools ￼</p>
+<p>⸻</p>
+</section>
+<section id="activity-make-this-multi-agent-better" class="level2">
+<h2 class="anchored" data-anchor-id="activity-make-this-multi-agent-better">Activity: Make This Multi-Agent Better</h2>
+<p>Your Task:</p>
+<p>This multi agent currently only has 1 tool. It’s mainly just a structure. Add tools to it and connect it to real data sources to make it useful. (Hint: you can connect it to the Canvas MCP server you built in the last lesson, local files, or the web!)</p>
+<p>Create a multi-agent system where a single agent would realistically fail.</p>
+<p>⸻</p>
+<p>Good Ideas (Pick One) • Code generator + debugger + tester • Resume analyzer + job matcher + cover letter writer • Data analyst + insight generator + presentation writer • Bug finder + fix generator + reviewer</p>
+<p>⸻</p>
+<p>Requirements • At least 3 agents • Clear role separation • Manager controls flow</p>
+<p>⸻</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Big Tip for Searching: Add Search tool
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This tool would make your agent actually use the web and get real information instead of hallucinating.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain.tools <span class="im">import</span> tool</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">@tool</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> search_web(query: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Search the web for current information"""</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This would call a real API like Tavily or SerpAPI</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"Search results for: "</span> <span class="op">+</span> query</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then make these changes to one of your subagents</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>research_agent <span class="op">=</span> create_agent(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"google_genai:gemini-2.5-flash"</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    tools<span class="op">=</span>[search_web],</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    system_prompt<span class="op">=</span><span class="st">"You are a research agent. ALWAYS use search_web for current info."</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Reminder of how to do a local data tool
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>STUDENT_DATA_DIR <span class="op">=</span> <span class="st">"student_data"</span> <span class="co"># this is where the directory is</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="at">@tool</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> read_student_files(query: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Reads all files in student_data/ and returns their contents.</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">    The query is ignored for now (simple version).</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> os.path.exists(STUDENT_DATA_DIR):</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"student_data folder not found."</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    all_text <span class="op">=</span> [] <span class="co"># this will hold the contents of all files</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> fname <span class="kw">in</span> os.listdir(STUDENT_DATA_DIR): <span class="co"># loop through each file in the directory</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>        path <span class="op">=</span> os.path.join(STUDENT_DATA_DIR, fname)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> os.path.isfile(path):</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>: <span class="co"># try to read the file, if there's an error we catch it and add it to the output</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">with</span> <span class="bu">open</span>(path, <span class="st">"r"</span>, encoding<span class="op">=</span><span class="st">"utf-8"</span>, errors<span class="op">=</span><span class="st">"ignore"</span>) <span class="im">as</span> f:</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>                content <span class="op">=</span> f.read()</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>            all_text.append(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">--- </span><span class="sc">{</span>fname<span class="sc">}</span><span class="ss"> ---</span><span class="ch">\n</span><span class="sc">{</span>content<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>            all_text.append(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">--- </span><span class="sc">{</span>fname<span class="sc">}</span><span class="ss"> ---</span><span class="ch">\n</span><span class="ss">ERROR: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>.join(all_text)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Key Takeaways • Multi-agents are NOT for simple tasks • They are for: • Multi-step workflows • Specialized roles • Parallelizable work • The best use case: 👉 Pipelines (research → analyze → write) • Subagents work best when: • Roles are clear • Context is isolated • Flow is structured</p>
+</div>
+</div>
+<p>⸻</p>
+<p>Practice Primer Next Lesson 🏃‍♂️‍➡️￼ 🌱￼ ➡️(lesson1_9.qmd)</p>
+
+
+</section>
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -761,7 +1360,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/username">
+    <a class="nav-link" href="https://github.com/007Ian">
       <i class="bi bi-github" role="img">
 </i> 
     </a>

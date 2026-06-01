@@ -1,18 +1,10 @@
----
-layout: cv
-title: Ian Blad
----
-
+**Ian Blad**
 
 <ianblad@gmail.com> \| 4698738496 \| [www.linkedin.com/in/ianblad](https://www.linkedin.com/in/ianblad)
 
+My portfolio website \| https://007ian.github.io/Ians_Work/
 
-
-## Education
-
-**PhD Psychology, Industrial/Organizational Emphasis**
-*Seattle Pacific University* Seattle, Washington
-Start date: September 2026
+**Education**
 
 **B.S. Psychology, Industrial/Organizational Emphasis, DS Minor**
 September 2021 - Present
@@ -28,11 +20,9 @@ September 2021 - Present
 
 - Learned analytical philosophical skills in philosophy minor classes
 
-
-
  
 
-## Professional Experience
+**Professional Experience**
 
 **HR Analyst Internship** May 2025 - August 2025
 
@@ -56,8 +46,6 @@ September 2021 - Present
 - Gave presentations and taught skills weekly, and promoted well-being
   in various leadership positions
 
-
-
 **Data Science Programming TA** Jan 2026 - Present
 
 *Brigham Young University Idaho* Rexburg, Idaho
@@ -67,8 +55,7 @@ September 2021 - Present
 
  
 
-## Key Projects
-
+**Key Projects**
 
 **Curriculum Creation for Agentic AI Courses at BYUI** January 2026 --
 April 2026
@@ -77,9 +64,7 @@ April 2026
 
 - Helped created curriculums for upcoming agentic AI classes
 
-- Gained extensive knowledge in the Agentic AI space
-
-
+- Gain extensive knowledge in the Agentic AI space
 
 **Belonging Project for BYUI** September 2024 - Present
 
@@ -90,8 +75,6 @@ April 2026
 
 - Currently working on initiative to improve inclusion and engagement at
   BYUI
-
-
 
 **MILB Promotion Analysis** September 2025 - Present
 

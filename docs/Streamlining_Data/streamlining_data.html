@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Let’s Solve Your People Problems – Ian Blad | HR Analytics Consultant</title>
+<title>Streamlining HR Data: From Chaos to Clarity with Google BigQuery – Ian Blad | HR Analytics Consultant</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,29 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./Images/favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7b4b7cf03a8cacdc4c4e734666990902.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-72f64bf331fa940d1a67df8a830e6e0a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-7b4b7cf03a8cacdc4c4e734666990902.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../Images/favicon.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b651517ce65839d647a86e2780455cfb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-555810cfcde67835606defcb56d3092c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,183 +69,24 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
-    const toggleBodyColorMode = (bsSheetEl) => {
-      const mode = bsSheetEl.getAttribute("data-mode");
-      const bodyEl = window.document.querySelector("body");
-      if (mode === "dark") {
-        bodyEl.classList.add("quarto-dark");
-        bodyEl.classList.remove("quarto-light");
-      } else {
-        bodyEl.classList.add("quarto-light");
-        bodyEl.classList.remove("quarto-dark");
-      }
-    }
-    const toggleBodyColorPrimary = () => {
-      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
-      if (bsSheetEl) {
-        toggleBodyColorMode(bsSheetEl);
-      }
-    }
-    const setColorSchemeToggle = (alternate) => {
-      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-      for (let i=0; i < toggles.length; i++) {
-        const toggle = toggles[i];
-        if (toggle) {
-          if (alternate) {
-            toggle.classList.add("alternate");
-          } else {
-            toggle.classList.remove("alternate");
-          }
-        }
-      }
-    };
-    const toggleColorMode = (alternate) => {
-      // Switch the stylesheets
-      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
-      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-      manageTransitions('#quarto-margin-sidebar .nav-link', false);
-      if (alternate) {
-        // note: dark is layered on light, we don't disable primary!
-        enableStylesheet(alternateStylesheets);
-        for (const sheetNode of alternateStylesheets) {
-          if (sheetNode.id === "quarto-bootstrap") {
-            toggleBodyColorMode(sheetNode);
-          }
-        }
-      } else {
-        disableStylesheet(alternateStylesheets);
-        enableStylesheet(primaryStylesheets)
-        toggleBodyColorPrimary();
-      }
-      manageTransitions('#quarto-margin-sidebar .nav-link', true);
-      // Switch the toggles
-      setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
-      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-        manageTransitions("body", false);
-        window.scrollTo(0, 1);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          manageTransitions("body", true);
-        }, 40);
-      }
-    }
-    const disableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        stylesheet.rel = 'disabled-stylesheet';
-      }
-    }
-    const enableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
-          stylesheet.rel = 'stylesheet';
-        }
-      }
-    }
-    const manageTransitions = (selector, allowTransitions) => {
-      const els = window.document.querySelectorAll(selector);
-      for (let i=0; i < els.length; i++) {
-        const el = els[i];
-        if (allowTransitions) {
-          el.classList.remove('notransition');
-        } else {
-          el.classList.add('notransition');
-        }
-      }
-    }
-    const isFileUrl = () => {
-      return window.location.protocol === 'file:';
-    }
-    const hasAlternateSentinel = () => {
-      let styleSentinel = getColorSchemeSentinel();
-      if (styleSentinel !== null) {
-        return styleSentinel === "alternate";
-      } else {
-        return false;
-      }
-    }
-    const setStyleSentinel = (alternate) => {
-      const value = alternate ? "alternate" : "default";
-      if (!isFileUrl()) {
-        window.localStorage.setItem("quarto-color-scheme", value);
-      } else {
-        localAlternateSentinel = value;
-      }
-    }
-    const getColorSchemeSentinel = () => {
-      if (!isFileUrl()) {
-        const storageValue = window.localStorage.getItem("quarto-color-scheme");
-        return storageValue != null ? storageValue : localAlternateSentinel;
-      } else {
-        return localAlternateSentinel;
-      }
-    }
-    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-      let newTheme = '';
-      if(authorPrefersDark) {
-        newTheme = isAlternate ? baseTheme : alternateTheme;
-      } else {
-        newTheme = isAlternate ? alternateTheme : baseTheme;
-      }
-      const changeGiscusTheme = () => {
-        // From: https://github.com/giscus/giscus/issues/336
-        const sendMessage = (message) => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-        }
-        sendMessage({
-          setConfig: {
-            theme: newTheme
-          }
-        });
-      }
-      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-      if (isGiscussLoaded) {
-        changeGiscusTheme();
-      }
-    };
-    const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
-      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-    // Dark / light mode switch
-    window.quartoToggleColorScheme = () => {
-      // Read the current dark / light value
-      let toAlternate = !hasAlternateSentinel();
-      toggleColorMode(toAlternate);
-      setStyleSentinel(toAlternate);
-      toggleGiscusIfUsed(toAlternate, darkModeDefault);
-      window.dispatchEvent(new Event('resize'));
-    };
-    // Switch to dark mode if need be
-    if (hasAlternateSentinel()) {
-      toggleColorMode(true);
-    } else {
-      toggleColorMode(false);
-    }
-  </script>
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Ian Blad | HR Analytics Consultant</span>
     </a>
   </div>
@@ -260,19 +97,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./services.html"> 
+    <a class="nav-link" href="../services.html"> 
 <span class="menu-text">New Leaf Services</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resume.html"> 
+    <a class="nav-link" href="../resume.html"> 
 <span class="menu-text">Resume</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -281,15 +118,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projects-portfolio">    
         <li>
-    <a class="dropdown-item" href="./Streamlining_Data/streamlining_data.html">
+    <a class="dropdown-item" href="../Streamlining_Data/streamlining_data.html">
  <span class="dropdown-text">Streamlining Data</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Organizational_Analysis/Consulting_Project.html">
+    <a class="dropdown-item" href="../Organizational_Analysis/Consulting_Project.html">
  <span class="dropdown-text">Organizational Analysis</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Agentic_AI_Course/agentic_ai.html">
+    <a class="dropdown-item" href="../Agentic_AI_Course/agentic_ai.html">
  <span class="dropdown-text">Agentic AI Course</span></a>
   </li>  
     </ul>
@@ -297,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./contact.html" aria-current="page"> 
+    <a class="nav-link" href="../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
 </ul>
@@ -312,16 +149,25 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-problem-the-high-cost-of-disconnected-hr-data" id="toc-the-problem-the-high-cost-of-disconnected-hr-data" class="nav-link active" data-scroll-target="#the-problem-the-high-cost-of-disconnected-hr-data">The Problem: The High Cost of Disconnected HR Data</a></li>
+  <li><a href="#the-architecture-unifying-your-people-data" id="toc-the-architecture-unifying-your-people-data" class="nav-link" data-scroll-target="#the-architecture-unifying-your-people-data">The Architecture: Unifying Your People Data</a></li>
+  <li><a href="#the-solution-strategy-why-google-bigquery" id="toc-the-solution-strategy-why-google-bigquery" class="nav-link" data-scroll-target="#the-solution-strategy-why-google-bigquery">The Solution Strategy: Why Google BigQuery?</a></li>
+  <li><a href="#the-business-impact" id="toc-the-business-impact" class="nav-link" data-scroll-target="#the-business-impact">The Business Impact</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Let’s Solve Your People Problems</h1>
+<h1 class="title">Streamlining HR Data: From Chaos to Clarity with Google BigQuery</h1>
+<p class="subtitle lead">Transforming disconnected HR systems into a unified engine for strategic decision-making.</p>
 </div>
 
 
@@ -338,31 +184,89 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Whether you need a full-scale workforce attrition analysis or a custom dashboard, I’m here to help.</p>
+<section id="the-problem-the-high-cost-of-disconnected-hr-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem-the-high-cost-of-disconnected-hr-data">The Problem: The High Cost of Disconnected HR Data</h2>
+<p>For many HR Directors and business leaders, answering a simple question like <em>“What is our turnover rate correlated with recent compensation changes?”</em> is an agonizing, multi-day process.</p>
+<p>Why? Because HR data is inherently messy and scattered. Your recruitment data lives in an Applicant Tracking System (ATS), compensation sits in Payroll, employee sentiment is trapped in a survey platform, and historical performance reviews are buried in endless Excel spreadsheets.</p>
+<p>This <strong>siloed architecture</strong> creates severe bottlenecks:</p>
 <ul>
-<li><strong>Email:</strong> ianblad2@gmail.com</li>
-<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ianblad">Connect with me on LinkedIn</a></li>
+<li><p><strong>Wasted Time:</strong> Your HR team spends hours every week manually exporting CSVs, running complex VLOOKUPs, and cleaning data instead of actually analyzing it.</p></li>
+<li><p><strong>Reactive Blind Spots:</strong> By the time a report is compiled, the data is already stale, making it impossible to proactively address flight risks or burnout.</p></li>
+<li><p><strong>Data Trust Issues:</strong> When leadership gets conflicting numbers because “my spreadsheet hasn’t been updated yet,” trust in HR metrics erodes.</p></li>
 </ul>
-<p><em>Alternatively, feel free to drop me a message directly via LinkedIn InMail for consulting inquiries.</em></p>
+</section>
+<section id="the-architecture-unifying-your-people-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-architecture-unifying-your-people-data">The Architecture: Unifying Your People Data</h2>
+<p>To solve this, we don’t need to replace your existing HR software. Instead, we build an automated bridge.</p>
+<p>Below is the architecture strategy I use to pull data out of isolated silos and organize it into a single, highly secure data warehouse.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph LR
+    %%{init: {'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#fff', 'lineColor': '#888'}}}%%
+    
+    %% Define dark mode styles with increased contrast
+    classDef source fill:#2c3e50,stroke:#7f8c8d,stroke-width:1px,color:white;
+    classDef pipeline fill:#1a3a4a,stroke:#3498db,stroke-width:2px,color:white,stroke-dasharray: 5 5;
+    classDef warehouse fill:#3e2c1a,stroke:#e67e22,stroke-width:2px,color:white;
+    classDef dashboard fill:#1a3e26,stroke:#2ecc71,stroke-width:2px,color:white;
+
+    %% Nodes
+    A[ATS Data&lt;br&gt;e.g., Lever, Greenhouse]:::source
+    B[Payroll / HRIS&lt;br&gt;e.g., ADP, Gusto]:::source
+    C[Engagement Surveys&lt;br&gt;e.g., CultureAmp]:::source
+    D[Manual Tracking&lt;br&gt;Excel, CSVs]:::source
+    
+    E(Automated Data Pipeline&lt;br&gt;Extraction &amp; Cleaning):::pipeline
+    
+    F[(Google BigQuery&lt;br&gt;Central Data Warehouse)]:::warehouse
+    
+    G[Business Intelligence Dashboard&lt;br&gt;e.g., Looker, PowerBI]:::dashboard
+
+    %% Flow - thickened lines for dark background visibility
+    A ==&gt; E
+    B ==&gt; E
+    C ==&gt; E
+    D ==&gt; E
+    E ==&gt; F
+    F ==&gt; G
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-solution-strategy-why-google-bigquery" class="level2">
+<h2 class="anchored" data-anchor-id="the-solution-strategy-why-google-bigquery">The Solution Strategy: Why Google BigQuery?</h2>
+<p>For Small to Medium-Sized Businesses (SMBs), building a data warehouse might sound like an expensive, enterprise-only endeavor. But <strong>Google BigQuery</strong> is cheap and scalable, making it the absolute best choice for growing HR teams:</p>
+<ul>
+<li><strong>Cost-Effective (Pay-As-You-Go):</strong> You don’t need to buy massive servers. BigQuery is “serverless,” meaning you only pay for the exact queries you run. For most SMB HR datasets, the storage and processing costs are mere pennies a month.</li>
+<li><strong>Enterprise-Grade Security:</strong> HR data is highly sensitive. BigQuery is backed by Google’s world-class security infrastructure, allowing us to set strict access controls. We can easily mask sensitive fields (like salaries or social security numbers) so only authorized leadership can view them.</li>
+<li><strong>Zero-Maintenance Scalability:</strong> Whether your company has 50 employees or 5,000, BigQuery handles the load effortlessly. As your business grows, your data architecture doesn’t have to change.</li>
+<li><strong>Seamless Integration:</strong> It connects natively to powerful Business Intelligence tools, turning raw code into beautiful, interactive dashboards that anyone on the executive team can understand.</li>
+</ul>
+</section>
+<section id="the-business-impact" class="level2">
+<h2 class="anchored" data-anchor-id="the-business-impact">The Business Impact</h2>
+<p>By centralizing your HR data into BigQuery and layering a visual dashboard on top, we shift the HR function from a tactical cost center to a strategic business partner.</p>
+<p>The ultimate Return on Investment (ROI) includes:</p>
+<ul>
+<li><p><strong>Saved Time:</strong> Complete elimination of manual data entry and spreadsheet consolidation. Reports that used to take days now refresh automatically in seconds.</p></li>
+<li><p><strong>A Single Source of Truth:</strong> End the meeting-room debates over whose numbers are correct. Everyone works from the same live, validated dataset.</p></li>
+<li><p><strong>Predictive Turnover Modeling:</strong> Move from asking <em>“Who left last quarter?”</em> to <em>“Who is showing signs of leaving next quarter?”</em> by correlating engagement scores with compensation gaps.</p></li>
+<li><p><strong>Strategic Agility:</strong> Instantly view real-time metrics on headcount pacing, diversity initiatives, and compensation equity at the click of a button.</p></li>
+</ul>
+<hr>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    // Ensure there is a toggle, if there isn't float one in the top right
-    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-      const i = window.document.createElement("i");
-      i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
-    }
-    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

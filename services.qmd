@@ -1,0 +1,88 @@
+---
+title: "Service Capabilities & Partnership Proposal"
+subtitle: "Transforming HR through Data, Automation, and Structured Systems"
+author: "New Leaf Consulting"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-title: "Capabilities Overview"
+    toc-location: left
+    number-sections: false
+    embed-resources: true
+    page-layout: article
+---
+
+## Executive Summary
+
+At **New Leaf Consulting**, we bridge the gap between human resources and advanced data analytics. Modern businesses lose countless hours and capital to unoptimized hiring, hidden turnover drivers, and disconnected data systems. 
+
+We provide actionable, data-backed solutions to optimize your workforce, protect your company from compliance risks, and give your management team their time back.
+
+---
+
+
+## 1. Predictive Turnover & Data Integration
+
+Understanding why employees leave shouldn't be based on guesswork or exit interviews alone. We turn your scattered HR data into clear, actionable insights.
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+### Turnover Root-Cause Analysis
+We aggregate and clean your historical data to identify the exact variables driving employee churn. We build the models so you can make proactive retention decisions.
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### Data Pipelines & Hygiene
+Most companies struggle with multiple, unsynced HRIS systems. We design automated data pipelines that warehouse your data, ensuring all your platforms "talk" to each other seamlessly.
+:::
+
+:::
+
+::: {.callout-success icon=false}
+#### 📈 Proven Impact: Retention Analytics
+By running a deep-dive analysis for a recent client, New Leaf Consulting identified **a single, previously unnoticed factor driving 13% of their total turnover.** Addressing this one metric resulted in immediate improvements to retention and bottom-line savings.
+:::
+
+---
+
+## 2. Intelligent Selection & Evaluation Systems
+
+A bad hire is expensive; an inefficient evaluation system drains management. We modernize how you bring people in and how you measure their success.
+
+* **Research-Backed Structured Interviews:** We design interview frameworks that remove bias, improve candidate quality, and standardize your hiring process.
+* **AI-Assisted Selection Analytics:** We systematize candidate selection using predictive analytics to identify top performers before you make an offer.
+* **Custom Pre-Hire Assessments:** Tailored testing mechanisms to ensure candidates actually possess the skills they claim on paper.
+
+::: {.callout-tip icon=false}
+#### ⏱️ Proven Impact: Automated Evaluations
+We recently designed and deployed an automated employee evaluation system for a client that eliminated manual reporting bottlenecks. It is projected to save their management team **hundreds of hours every single year**.
+:::
+
+---
+
+## 3. Foundational HR Infrastructure
+
+Whether you are a startup building from scratch or an established business needing a compliance check, we provide the architecture to keep you secure and organized.
+
+::: {.panel-tabset}
+
+### Ground-Zero Data Housing
+**No HR data infrastructure? No problem.** For organizations currently tracking employees on paper or scattered files, we build customized foundational databases. From highly automated Google Sheets frameworks to robust SQL database solutions, we give you a scalable template to start capturing valuable workforce data from day one.
+
+:::
+
+---
+
+## Next Steps
+
+Every business has unique workforce challenges. We would love to schedule a brief discovery session to look at your current systems and identify where New Leaf Consulting can provide ROI.
+
+::: {.grid}
+::: {.g-col-12 .text-center}
+<br>
+[Schedule a Discovery Call →](mailto:ianblad@gmail.com) {.btn .btn-primary .btn-lg role="button"}
+:::
+:::

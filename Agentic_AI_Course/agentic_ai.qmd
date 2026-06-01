@@ -1,0 +1,475 @@
+---
+title: "This is a Part of an Agentic AI Course Developed for DS 295R Agent Engineering at BYUI"
+subtitle: "Unit 1, Lesson 8"
+format:
+  html:
+    page-layout: full
+
+---
+
+## Multi-Agents: Subagents, Handoffs, and More
+
+
+::: {.panel-tabset}
+
+## Quick Links
+
+| Practice | Primer | Slides | Examples | Lecture Notes | Next Lesson |
+|----------|--------|--------|----------|---------------|-------------|
+| [🏃‍♂️‍➡️](../practice/practice1_8.qmd) | [🌱](../primers/primer1_8.qmd) | [🧑‍🏫](../lecture_slides/slide1_8.qmd) | [📓]({{< var example_base >}}1_8.ipynb "Opens in Google Colab - See README if broken") | [📋](../instructor_notes/notes1_8.qmd) | [➡️](lesson1_9.qmd) |
+
+## Before Class
+
+| Practice | Primer | Previous Lesson |
+|----------|--------|-------------|
+| [🏃‍♂️‍➡️](../practice/practice1_7.qmd) | [🌱](../primers/primer1_8.qmd) | [⬅️](lesson1_7.qmd) |
+
+## After Class
+
+| Practice | Primer | Next Lesson |
+|----------|--------|-------------|
+| [🏃‍♂️‍➡️](../practice/practice1_8.qmd) | [🌱](../primers/primer1_9.qmd) | [➡️](lesson1_9.qmd) |
+:::
+
+# Outcomes
+
+Multi-Agent Systems
+- Understand what multi-agent systems are and when they are necessary
+- Identify when a single agent fails and multi-agents succeed
+- Build a realistic multi-agent research pipeline
+- Create a multi-agent system using subagents in LangChain
+
+# Preparation
+
+- Review single-agent + tools from previous lessons
+- Think about:
+  - What happens when a task has multiple *distinct phases*?
+  - What happens when you need *verification* or *parallel work*?
+
+# Discussion
+
+1. Report on work accomplished  
+2. Key takeaways  
+3. Questions unaddressed  
+4. Optional discussion questions  
+    - When would a single agent *break* on a complex task?
+    - What real-world jobs naturally split into multiple roles?
+    - Why might separating roles improve reliability?  
+5. Log partner's contribution  
+
+# Class
+
+# Lesson Overview
+
+| Segment | Duration |
+|---|---|
+| Lecture: When Multi-Agents Are Necessary | 15 minutes |
+| Concept: Subagents Deep Dive | 15 minutes |
+| Guided Coding: Research Pipeline | 25 minutes |
+| Activity: Build Your Own System | 20+ minutes |
+
+---
+
+# The Problem: When One Agent Fails
+
+Let’s look at a realistic task:
+
+> “Research AI trends in 2026, evaluate the most important ones, and write a professional report with sources.”
+
+### Try this as ONE agent:
+
+- It must:
+  - Search
+  - Evaluate sources
+  - Decide importance
+  - Write clearly
+  - Cite correctly
+
+👉 This usually results in:
+- Weak sourcing  
+- Hallucinated facts  
+- Mixed reasoning + writing  
+- No clear failure point  
+
+---
+
+::: {.callout-warning}
+## Key Insight
+
+A single agent must do **everything in one context window**.
+
+This creates:
+- Cognitive overload  
+- Poor specialization  
+- No separation of concerns  
+
+:::
+
+---
+
+# The Real Use Case: Research Pipeline System
+
+This is where multi-agents shine.
+
+Real systems (like production research tools) use a structure like this:
+
+- **Planner Agent** → breaks task into subtopics  
+- **Research Agents** → gather information (parallel)  
+- **Analyst Agent** → evaluates and compares findings  
+- **Writer Agent** → produces final report  
+
+This pattern is widely used because:
+- Tasks are **naturally separable**
+- Work can be **parallelized**
+- Each agent has **focused context**  [oai_citation:0‡Anthropic](https://www.anthropic.com/engineering/built-multi-agent-research-system?utm_source=chatgpt.com)  
+
+---
+
+## Why This CANNOT Be One Agent
+
+If you try to force this into one agent:
+
+| Problem | Why it Happens |
+|--------|------|
+| Hallucinated sources | No separation between retrieval and writing |
+| Weak reasoning | Mixing analysis + writing |
+| Context overload | Too many responsibilities |
+| No debugging | You don’t know which step failed |
+
+
+
+---
+
+# Guided Coding: Real Multi-Agent System
+
+We will build:
+
+👉 A **Research Pipeline System**
+
+- Research Agent  
+- Analyst Agent  
+- Writer Agent  
+- Manager Agent (controls everything)
+
+---
+
+## Step 1: Create Specialized Subagents & Tools
+### We are going to include a simple local folder reader that can read data inside a folder called "student data" you can change this if you would like. You will have to create this folder and add files to it for the tool to work.
+
+
+```python
+
+
+# Add tools at the end of this block
+
+from langchain.agents import create_agent
+import os
+from dotenv import load_dotenv
+from langchain.tools import tool
+
+load_dotenv()
+
+# Optional: print to verify (should NOT be None)
+print(os.getenv("GEMINI_API_KEY"))
+
+
+from langchain.tools import tool
+
+
+STUDENT_DATA_DIR = "student_data" # this is where the directory is
+
+
+@tool
+def read_student_files(query: str) -> str:
+    """
+    Reads all files in student_data/ and returns their contents.
+    The query is ignored for now (simple version).
+    """
+    if not os.path.exists(STUDENT_DATA_DIR):
+        return "student_data folder not found."
+
+    all_text = []
+    for fname in os.listdir(STUDENT_DATA_DIR):
+        path = os.path.join(STUDENT_DATA_DIR, fname)
+
+        if not os.path.isfile(path):
+            continue
+
+        try:
+            with open(path, "r", encoding="utf-8", errors="ignore") as f:
+                content = f.read()
+            all_text.append(f"\n--- {fname} ---\n{content}")
+        except Exception as e:
+            all_text.append(f"\n--- {fname} ---\nERROR: {e}")
+
+    return "\n".join(all_text)
+```
+
+### These are very simple agents. They just call the LLM with a specific system prompt and tools. They could be made much more complex with memory, tool use, etc. but this is the basic structure.
+```python
+
+
+
+# Research Agent
+research_agent = create_agent(
+    model="google_genai:gemini-2.5-flash",
+    system_prompt="""
+You are a research agent.
+
+ONLY gather facts.
+- No opinions
+- No summaries
+- Return bullet points
+""",
+	tools = [read_student_files] # add real tools here
+)
+
+# Analyst Agent
+analysis_agent = create_agent(
+    model="google_genai:gemini-2.5-flash",
+    system_prompt="""
+You are an analyst.
+
+Take research and:
+- Identify key insights
+- Compare ideas
+- Rank importance
+"""
+)
+
+# Writer Agent
+writer_agent = create_agent(
+    model="google_genai:gemini-2.5-flash",
+    system_prompt="""
+You are a professional writer.
+
+Turn analysis into:
+- Clear report
+- Well structured
+- Professional tone
+"""
+)
+```
+
+
+
+⸻
+
+## Step 2: Wrap as Tools
+### Now we wrap each agent as a tool that the manager can call. This keeps their contexts separate and allows the manager to control the flow.
+
+```python
+
+
+
+@tool
+def do_research(query: str) -> str:
+    """Gather raw information"""
+    result = research_agent.invoke({
+        "messages": [{"role": "user", "content": query}]
+    })
+    return result["messages"][-1].content
+
+
+@tool
+def do_analysis(data: str) -> str:
+    """Analyze research"""
+    result = analysis_agent.invoke({
+        "messages": [{"role": "user", "content": data}]
+    })
+    return result["messages"][-1].content
+
+
+@tool
+def do_writing(data: str) -> str:
+    """Write final report"""
+    result = writer_agent.invoke({
+        "messages": [{"role": "user", "content": data}]
+    })
+    return result["messages"][-1].content
+
+```
+
+
+
+⸻
+
+## Step 3: Create Manager Agent
+### Notice how the manager agent has the subagents in their tools. The system prompt is very important for the manager to understand what its supposed to do. 
+
+```python
+manager = create_agent(
+    model="google_genai:gemini-2.5-flash",
+    system_prompt="""
+You are a manager coordinating a research pipeline.
+
+Steps:
+1. Call do_research
+2. Pass result to do_analysis
+3. Pass result to do_writing
+
+After do_writing finishes, RETURN ONLY the exact text output from do_writing as the final answer.
+Do not add any extra commentary or status text.
+""",
+    tools=[do_research, do_analysis, do_writing]
+)
+
+```
+
+
+
+⸻
+
+## Step 4: Run It
+
+
+
+```python
+response = manager.invoke({
+    "messages": [
+        {"role": "user", "content": "Go into student files and write a study guide based on the contents."}
+    ]
+})
+
+print(response["messages"][-1].content)
+```
+
+
+⸻
+
+::: {.callout-note}
+
+What Just Happened?
+	•	Each agent had one responsibility
+	•	Context stayed clean and focused
+	•	The system became:
+	•	More reliable
+	•	More explainable
+	•	Easier to improve
+
+This is why multi-agents exist.
+
+:::
+
+⸻
+
+Why This Example Matters
+
+This pattern is used in:
+	•	Research assistants
+	•	Coding agents
+	•	Business intelligence systems
+	•	Market analysis tools  ￼
+
+⸻
+
+## Activity: Make This Multi-Agent Better
+
+Your Task:
+
+This multi agent currently only has 1 tool. It’s mainly just a structure. Add tools to it and connect it to real data sources to make it useful. (Hint: you can connect it to the Canvas MCP server you built in the last lesson, local files, or the web!)
+
+Create a multi-agent system where a single agent would realistically fail.
+
+
+⸻
+
+Good Ideas (Pick One)
+	•	Code generator + debugger + tester
+	•	Resume analyzer + job matcher + cover letter writer
+	•	Data analyst + insight generator + presentation writer
+	•	Bug finder + fix generator + reviewer
+
+⸻
+
+Requirements
+	•	At least 3 agents
+	•	Clear role separation
+	•	Manager controls flow
+
+⸻
+
+::: {.callout-warning}
+## Big Tip for Searching: Add Search tool 
+
+This tool would make your agent actually use the web and get real information instead of hallucinating.
+```python
+from langchain.tools import tool
+
+@tool
+def search_web(query: str) -> str:
+    """Search the web for current information"""
+    # This would call a real API like Tavily or SerpAPI
+    return "Search results for: " + query
+```
+
+Then make these changes to one of your subagents
+
+```python
+research_agent = create_agent(
+    model="google_genai:gemini-2.5-flash",
+    tools=[search_web],
+    system_prompt="You are a research agent. ALWAYS use search_web for current info."
+)
+```
+:::
+
+::: {.callout-tip}
+## Reminder of how to do a local data tool
+
+```python
+STUDENT_DATA_DIR = "student_data" # this is where the directory is
+
+
+@tool
+def read_student_files(query: str) -> str:
+    """
+    Reads all files in student_data/ and returns their contents.
+    The query is ignored for now (simple version).
+    """
+    if not os.path.exists(STUDENT_DATA_DIR):
+        return "student_data folder not found."
+
+    all_text = [] # this will hold the contents of all files
+    for fname in os.listdir(STUDENT_DATA_DIR): # loop through each file in the directory
+        path = os.path.join(STUDENT_DATA_DIR, fname)
+
+        if not os.path.isfile(path):
+            continue
+
+        try: # try to read the file, if there's an error we catch it and add it to the output
+            with open(path, "r", encoding="utf-8", errors="ignore") as f:
+                content = f.read()
+            all_text.append(f"\n--- {fname} ---\n{content}")
+        except Exception as e:
+            all_text.append(f"\n--- {fname} ---\nERROR: {e}")
+
+    return "\n".join(all_text)
+
+
+```
+
+:::
+
+::: {.callout-note}
+Key Takeaways
+	•	Multi-agents are NOT for simple tasks
+	•	They are for:
+	•	Multi-step workflows
+	•	Specialized roles
+	•	Parallelizable work
+	•	The best use case:
+👉 Pipelines (research → analyze → write)
+	•	Subagents work best when:
+	•	Roles are clear
+	•	Context is isolated
+	•	Flow is structured
+
+:::
+
+⸻
+
+
+Practice	Primer	Next Lesson
+🏃‍♂️‍➡️￼	🌱￼	➡️(lesson1_9.qmd)
+

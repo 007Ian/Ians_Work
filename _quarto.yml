@@ -6,7 +6,7 @@ website:
   title: "Ian Blad | HR Analytics Consultant"
   favicon: Images/favicon.png
   back-to-top-navigation: true
-  repo-url: https://github.com/username/username.github.io
+  repo-url: https://github.com/007Ian/Ians_Work.git
 
   page-footer: 
     border: true
@@ -15,7 +15,7 @@ website:
       - icon: linkedin
         href: https://www.linkedin.com/in/ianblad
       - icon: github
-        href: https://github.com/username
+        href: https://github.com/007Ian
 
   navbar:
     background: dark
@@ -23,35 +23,35 @@ website:
     left:
       - text: "Home"
         file: index.qmd
+      - text: "New Leaf Services"
+        file: services.qmd        
       - text: "About"
         file: about.qmd
       - text: "Resume"
         file: resume.qmd
-      - text: "Contact"
-        file: contact.qmd
-    right:
-      - text: "Portfolio Categories"
+
+      - text: "Projects Portfolio"
         menu:
+
+          - text: "Streamlining Data"
+            file: Streamlining_Data/streamlining_data.qmd
+
           - text: "Organizational Analysis"
-            file: Organizational_Analysis/Consulting_project.qmd
-
-          - text: "Experimental Designs"
-            file: Experimental_Designs/exploration.qmd
-
-          - text: "Data Storytelling"
-            file: Storytelling/project1.qmd
-
-          - text: "Machine Learning"
-            file: Machine_Learning/project1.qmd
+            file: Organizational_Analysis/Consulting_Project.qmd
 
           - text: "Agentic AI Course"
             file: Agentic_AI_Course/agentic_ai.qmd
 
+
+    right:
+      - text: "Contact"
+        file: contact.qmd
 format:  
   html:
     theme: 
       light: flatly
       dark: darkly
+    default-theme: dark
     default-image-extension: png
     css: styles.css
     toc: true
