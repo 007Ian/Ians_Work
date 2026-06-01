@@ -1,5 +1,5 @@
 ---
-title: "This is a Part of an Agentic AI Course Developed for DS 295R Agent Engineering at BYUI"
+title: "This is a Part of an Agentic AI Course We Developed for DS 295R Agent Engineering at BYUI"
 subtitle: "Unit 1, Lesson 8"
 format:
   html:

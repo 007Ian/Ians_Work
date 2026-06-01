@@ -48,7 +48,7 @@ graph LR
     
     F[(Google BigQuery<br>Central Data Warehouse)]:::warehouse
     
-    G[Business Intelligence Dashboard<br>e.g., Looker, PowerBI]:::dashboard
+    G[Business Intelligence Dashboard<br>e.g., Python, PowerBI]:::dashboard
 
     %% Flow - thickened lines for dark background visibility
     A ==> E

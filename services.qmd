@@ -82,7 +82,7 @@ Every business has unique workforce challenges. We would love to schedule a brie
 
 ::: {.grid}
 ::: {.g-col-12 .text-center}
-<br>
-[Schedule a Discovery Call →](mailto:ianblad@gmail.com) {.btn .btn-primary .btn-lg role="button"}
+
+
 :::
 :::

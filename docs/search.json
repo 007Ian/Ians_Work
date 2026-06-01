@@ -93,56 +93,56 @@
   {
     "objectID": "Agentic_AI_Course/agentic_ai.html",
     "href": "Agentic_AI_Course/agentic_ai.html",
-    "title": "This is a Part of an Agentic AI Course Developed for DS 295R Agent Engineering at BYUI",
+    "title": "This is a Part of an Agentic AI Course We Developed for DS 295R Agent Engineering at BYUI",
     "section": "",
     "text": "Quick LinksBefore ClassAfter Class\n\n\n\n\n\nPractice\nPrimer\nSlides\nExamples\nLecture Notes\nNext Lesson\n\n\n\n\n🏃‍♂️‍➡️\n🌱\n🧑‍🏫\n📓\n📋\n➡️\n\n\n\n\n\n\n\n\nPractice\nPrimer\nPrevious Lesson\n\n\n\n\n🏃‍♂️‍➡️\n🌱\n⬅️\n\n\n\n\n\n\n\n\nPractice\nPrimer\nNext Lesson\n\n\n\n\n🏃‍♂️‍➡️\n🌱\n➡️"
   },
   {
     "objectID": "Agentic_AI_Course/agentic_ai.html#multi-agents-subagents-handoffs-and-more",
     "href": "Agentic_AI_Course/agentic_ai.html#multi-agents-subagents-handoffs-and-more",
-    "title": "This is a Part of an Agentic AI Course Developed for DS 295R Agent Engineering at BYUI",
+    "title": "This is a Part of an Agentic AI Course We Developed for DS 295R Agent Engineering at BYUI",
     "section": "",
     "text": "Quick LinksBefore ClassAfter Class\n\n\n\n\n\nPractice\nPrimer\nSlides\nExamples\nLecture Notes\nNext Lesson\n\n\n\n\n🏃‍♂️‍➡️\n🌱\n🧑‍🏫\n📓\n📋\n➡️\n\n\n\n\n\n\n\n\nPractice\nPrimer\nPrevious Lesson\n\n\n\n\n🏃‍♂️‍➡️\n🌱\n⬅️\n\n\n\n\n\n\n\n\nPractice\nPrimer\nNext Lesson\n\n\n\n\n🏃‍♂️‍➡️\n🌱\n➡️"
   },
   {
     "objectID": "Agentic_AI_Course/agentic_ai.html#why-this-cannot-be-one-agent",
     "href": "Agentic_AI_Course/agentic_ai.html#why-this-cannot-be-one-agent",
-    "title": "This is a Part of an Agentic AI Course Developed for DS 295R Agent Engineering at BYUI",
+    "title": "This is a Part of an Agentic AI Course We Developed for DS 295R Agent Engineering at BYUI",
     "section": "Why This CANNOT Be One Agent",
     "text": "Why This CANNOT Be One Agent\nIf you try to force this into one agent:\n\n\n\nProblem\nWhy it Happens\n\n\n\n\nHallucinated sources\nNo separation between retrieval and writing\n\n\nWeak reasoning\nMixing analysis + writing\n\n\nContext overload\nToo many responsibilities\n\n\nNo debugging\nYou don’t know which step failed"
   },
   {
     "objectID": "Agentic_AI_Course/agentic_ai.html#step-1-create-specialized-subagents-tools",
     "href": "Agentic_AI_Course/agentic_ai.html#step-1-create-specialized-subagents-tools",
-    "title": "This is a Part of an Agentic AI Course Developed for DS 295R Agent Engineering at BYUI",
+    "title": "This is a Part of an Agentic AI Course We Developed for DS 295R Agent Engineering at BYUI",
     "section": "Step 1: Create Specialized Subagents & Tools",
     "text": "Step 1: Create Specialized Subagents & Tools\n\nWe are going to include a simple local folder reader that can read data inside a folder called “student data” you can change this if you would like. You will have to create this folder and add files to it for the tool to work.\n\n\n# Add tools at the end of this block\n\nfrom langchain.agents import create_agent\nimport os\nfrom dotenv import load_dotenv\nfrom langchain.tools import tool\n\nload_dotenv()\n\n# Optional: print to verify (should NOT be None)\nprint(os.getenv(\"GEMINI_API_KEY\"))\n\n\nfrom langchain.tools import tool\n\n\nSTUDENT_DATA_DIR = \"student_data\" # this is where the directory is\n\n\n@tool\ndef read_student_files(query: str) -&gt; str:\n    \"\"\"\n    Reads all files in student_data/ and returns their contents.\n    The query is ignored for now (simple version).\n    \"\"\"\n    if not os.path.exists(STUDENT_DATA_DIR):\n        return \"student_data folder not found.\"\n\n    all_text = []\n    for fname in os.listdir(STUDENT_DATA_DIR):\n        path = os.path.join(STUDENT_DATA_DIR, fname)\n\n        if not os.path.isfile(path):\n            continue\n\n        try:\n            with open(path, \"r\", encoding=\"utf-8\", errors=\"ignore\") as f:\n                content = f.read()\n            all_text.append(f\"\\n--- {fname} ---\\n{content}\")\n        except Exception as e:\n            all_text.append(f\"\\n--- {fname} ---\\nERROR: {e}\")\n\n    return \"\\n\".join(all_text)\n\n\nThese are very simple agents. They just call the LLM with a specific system prompt and tools. They could be made much more complex with memory, tool use, etc. but this is the basic structure.\n\n\n\n# Research Agent\nresearch_agent = create_agent(\n    model=\"google_genai:gemini-2.5-flash\",\n    system_prompt=\"\"\"\nYou are a research agent.\n\nONLY gather facts.\n- No opinions\n- No summaries\n- Return bullet points\n\"\"\",\n    tools = [read_student_files] # add real tools here\n)\n\n# Analyst Agent\nanalysis_agent = create_agent(\n    model=\"google_genai:gemini-2.5-flash\",\n    system_prompt=\"\"\"\nYou are an analyst.\n\nTake research and:\n- Identify key insights\n- Compare ideas\n- Rank importance\n\"\"\"\n)\n\n# Writer Agent\nwriter_agent = create_agent(\n    model=\"google_genai:gemini-2.5-flash\",\n    system_prompt=\"\"\"\nYou are a professional writer.\n\nTurn analysis into:\n- Clear report\n- Well structured\n- Professional tone\n\"\"\"\n)\n⸻"
   },
   {
     "objectID": "Agentic_AI_Course/agentic_ai.html#step-2-wrap-as-tools",
     "href": "Agentic_AI_Course/agentic_ai.html#step-2-wrap-as-tools",
-    "title": "This is a Part of an Agentic AI Course Developed for DS 295R Agent Engineering at BYUI",
+    "title": "This is a Part of an Agentic AI Course We Developed for DS 295R Agent Engineering at BYUI",
     "section": "Step 2: Wrap as Tools",
     "text": "Step 2: Wrap as Tools\n\nNow we wrap each agent as a tool that the manager can call. This keeps their contexts separate and allows the manager to control the flow.\n\n\n\n@tool\ndef do_research(query: str) -&gt; str:\n    \"\"\"Gather raw information\"\"\"\n    result = research_agent.invoke({\n        \"messages\": [{\"role\": \"user\", \"content\": query}]\n    })\n    return result[\"messages\"][-1].content\n\n\n@tool\ndef do_analysis(data: str) -&gt; str:\n    \"\"\"Analyze research\"\"\"\n    result = analysis_agent.invoke({\n        \"messages\": [{\"role\": \"user\", \"content\": data}]\n    })\n    return result[\"messages\"][-1].content\n\n\n@tool\ndef do_writing(data: str) -&gt; str:\n    \"\"\"Write final report\"\"\"\n    result = writer_agent.invoke({\n        \"messages\": [{\"role\": \"user\", \"content\": data}]\n    })\n    return result[\"messages\"][-1].content\n⸻"
   },
   {
     "objectID": "Agentic_AI_Course/agentic_ai.html#step-3-create-manager-agent",
     "href": "Agentic_AI_Course/agentic_ai.html#step-3-create-manager-agent",
-    "title": "This is a Part of an Agentic AI Course Developed for DS 295R Agent Engineering at BYUI",
+    "title": "This is a Part of an Agentic AI Course We Developed for DS 295R Agent Engineering at BYUI",
     "section": "Step 3: Create Manager Agent",
     "text": "Step 3: Create Manager Agent\n\nNotice how the manager agent has the subagents in their tools. The system prompt is very important for the manager to understand what its supposed to do.\nmanager = create_agent(\n    model=\"google_genai:gemini-2.5-flash\",\n    system_prompt=\"\"\"\nYou are a manager coordinating a research pipeline.\n\nSteps:\n1. Call do_research\n2. Pass result to do_analysis\n3. Pass result to do_writing\n\nAfter do_writing finishes, RETURN ONLY the exact text output from do_writing as the final answer.\nDo not add any extra commentary or status text.\n\"\"\",\n    tools=[do_research, do_analysis, do_writing]\n)\n⸻"
   },
   {
     "objectID": "Agentic_AI_Course/agentic_ai.html#step-4-run-it",
     "href": "Agentic_AI_Course/agentic_ai.html#step-4-run-it",
-    "title": "This is a Part of an Agentic AI Course Developed for DS 295R Agent Engineering at BYUI",
+    "title": "This is a Part of an Agentic AI Course We Developed for DS 295R Agent Engineering at BYUI",
     "section": "Step 4: Run It",
     "text": "Step 4: Run It\nresponse = manager.invoke({\n    \"messages\": [\n        {\"role\": \"user\", \"content\": \"Go into student files and write a study guide based on the contents.\"}\n    ]\n})\n\nprint(response[\"messages\"][-1].content)\n⸻\n\n\n\n\n\n\nNote\n\n\n\nWhat Just Happened? • Each agent had one responsibility • Context stayed clean and focused • The system became: • More reliable • More explainable • Easier to improve\nThis is why multi-agents exist.\n\n\n⸻\nWhy This Example Matters\nThis pattern is used in: • Research assistants • Coding agents • Business intelligence systems • Market analysis tools ￼\n⸻"
   },
   {
     "objectID": "Agentic_AI_Course/agentic_ai.html#activity-make-this-multi-agent-better",
     "href": "Agentic_AI_Course/agentic_ai.html#activity-make-this-multi-agent-better",
-    "title": "This is a Part of an Agentic AI Course Developed for DS 295R Agent Engineering at BYUI",
+    "title": "This is a Part of an Agentic AI Course We Developed for DS 295R Agent Engineering at BYUI",
     "section": "Activity: Make This Multi-Agent Better",
     "text": "Activity: Make This Multi-Agent Better\nYour Task:\nThis multi agent currently only has 1 tool. It’s mainly just a structure. Add tools to it and connect it to real data sources to make it useful. (Hint: you can connect it to the Canvas MCP server you built in the last lesson, local files, or the web!)\nCreate a multi-agent system where a single agent would realistically fail.\n⸻\nGood Ideas (Pick One) • Code generator + debugger + tester • Resume analyzer + job matcher + cover letter writer • Data analyst + insight generator + presentation writer • Bug finder + fix generator + reviewer\n⸻\nRequirements • At least 3 agents • Clear role separation • Manager controls flow\n⸻\n\n\n\n\n\n\nWarningBig Tip for Searching: Add Search tool\n\n\n\nThis tool would make your agent actually use the web and get real information instead of hallucinating.\nfrom langchain.tools import tool\n\n@tool\ndef search_web(query: str) -&gt; str:\n    \"\"\"Search the web for current information\"\"\"\n    # This would call a real API like Tavily or SerpAPI\n    return \"Search results for: \" + query\nThen make these changes to one of your subagents\nresearch_agent = create_agent(\n    model=\"google_genai:gemini-2.5-flash\",\n    tools=[search_web],\n    system_prompt=\"You are a research agent. ALWAYS use search_web for current info.\"\n)\n\n\n\n\n\n\n\n\nTipReminder of how to do a local data tool\n\n\n\nSTUDENT_DATA_DIR = \"student_data\" # this is where the directory is\n\n\n@tool\ndef read_student_files(query: str) -&gt; str:\n    \"\"\"\n    Reads all files in student_data/ and returns their contents.\n    The query is ignored for now (simple version).\n    \"\"\"\n    if not os.path.exists(STUDENT_DATA_DIR):\n        return \"student_data folder not found.\"\n\n    all_text = [] # this will hold the contents of all files\n    for fname in os.listdir(STUDENT_DATA_DIR): # loop through each file in the directory\n        path = os.path.join(STUDENT_DATA_DIR, fname)\n\n        if not os.path.isfile(path):\n            continue\n\n        try: # try to read the file, if there's an error we catch it and add it to the output\n            with open(path, \"r\", encoding=\"utf-8\", errors=\"ignore\") as f:\n                content = f.read()\n            all_text.append(f\"\\n--- {fname} ---\\n{content}\")\n        except Exception as e:\n            all_text.append(f\"\\n--- {fname} ---\\nERROR: {e}\")\n\n    return \"\\n\".join(all_text)\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nKey Takeaways • Multi-agents are NOT for simple tasks • They are for: • Multi-step workflows • Specialized roles • Parallelizable work • The best use case: 👉 Pipelines (research → analyze → write) • Subagents work best when: • Roles are clear • Context is isolated • Flow is structured\n\n\n⸻\nPractice Primer Next Lesson 🏃‍♂️‍➡️￼ 🌱￼ ➡️(lesson1_9.qmd)"
   },
@@ -186,7 +186,7 @@
     "href": "services.html#next-steps",
     "title": "Service Capabilities & Partnership Proposal",
     "section": "Next Steps",
-    "text": "Next Steps\nEvery business has unique workforce challenges. We would love to schedule a brief discovery session to look at your current systems and identify where New Leaf Consulting can provide ROI.\n\n\n Schedule a Discovery Call → {.btn .btn-primary .btn-lg role=“button”}"
+    "text": "Next Steps\nEvery business has unique workforce challenges. We would love to schedule a brief discovery session to look at your current systems and identify where New Leaf Consulting can provide ROI."
   },
   {
     "objectID": "resume.html",
@@ -256,7 +256,7 @@
     "href": "Streamlining_Data/streamlining_data.html#the-architecture-unifying-your-people-data",
     "title": "Streamlining HR Data: From Chaos to Clarity with Google BigQuery",
     "section": "The Architecture: Unifying Your People Data",
-    "text": "The Architecture: Unifying Your People Data\nTo solve this, we don’t need to replace your existing HR software. Instead, we build an automated bridge.\nBelow is the architecture strategy I use to pull data out of isolated silos and organize it into a single, highly secure data warehouse.\n\n\n\n\n\ngraph LR\n    %%{init: {'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#fff', 'lineColor': '#888'}}}%%\n    \n    %% Define dark mode styles with increased contrast\n    classDef source fill:#2c3e50,stroke:#7f8c8d,stroke-width:1px,color:white;\n    classDef pipeline fill:#1a3a4a,stroke:#3498db,stroke-width:2px,color:white,stroke-dasharray: 5 5;\n    classDef warehouse fill:#3e2c1a,stroke:#e67e22,stroke-width:2px,color:white;\n    classDef dashboard fill:#1a3e26,stroke:#2ecc71,stroke-width:2px,color:white;\n\n    %% Nodes\n    A[ATS Data&lt;br&gt;e.g., Lever, Greenhouse]:::source\n    B[Payroll / HRIS&lt;br&gt;e.g., ADP, Gusto]:::source\n    C[Engagement Surveys&lt;br&gt;e.g., CultureAmp]:::source\n    D[Manual Tracking&lt;br&gt;Excel, CSVs]:::source\n    \n    E(Automated Data Pipeline&lt;br&gt;Extraction & Cleaning):::pipeline\n    \n    F[(Google BigQuery&lt;br&gt;Central Data Warehouse)]:::warehouse\n    \n    G[Business Intelligence Dashboard&lt;br&gt;e.g., Looker, PowerBI]:::dashboard\n\n    %% Flow - thickened lines for dark background visibility\n    A ==&gt; E\n    B ==&gt; E\n    C ==&gt; E\n    D ==&gt; E\n    E ==&gt; F\n    F ==&gt; G"
+    "text": "The Architecture: Unifying Your People Data\nTo solve this, we don’t need to replace your existing HR software. Instead, we build an automated bridge.\nBelow is the architecture strategy I use to pull data out of isolated silos and organize it into a single, highly secure data warehouse.\n\n\n\n\n\ngraph LR\n    %%{init: {'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#fff', 'lineColor': '#888'}}}%%\n    \n    %% Define dark mode styles with increased contrast\n    classDef source fill:#2c3e50,stroke:#7f8c8d,stroke-width:1px,color:white;\n    classDef pipeline fill:#1a3a4a,stroke:#3498db,stroke-width:2px,color:white,stroke-dasharray: 5 5;\n    classDef warehouse fill:#3e2c1a,stroke:#e67e22,stroke-width:2px,color:white;\n    classDef dashboard fill:#1a3e26,stroke:#2ecc71,stroke-width:2px,color:white;\n\n    %% Nodes\n    A[ATS Data&lt;br&gt;e.g., Lever, Greenhouse]:::source\n    B[Payroll / HRIS&lt;br&gt;e.g., ADP, Gusto]:::source\n    C[Engagement Surveys&lt;br&gt;e.g., CultureAmp]:::source\n    D[Manual Tracking&lt;br&gt;Excel, CSVs]:::source\n    \n    E(Automated Data Pipeline&lt;br&gt;Extraction & Cleaning):::pipeline\n    \n    F[(Google BigQuery&lt;br&gt;Central Data Warehouse)]:::warehouse\n    \n    G[Business Intelligence Dashboard&lt;br&gt;e.g., Python, PowerBI]:::dashboard\n\n    %% Flow - thickened lines for dark background visibility\n    A ==&gt; E\n    B ==&gt; E\n    C ==&gt; E\n    D ==&gt; E\n    E ==&gt; F\n    F ==&gt; G"
   },
   {
     "objectID": "Streamlining_Data/streamlining_data.html#the-solution-strategy-why-google-bigquery",
