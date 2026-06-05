@@ -4,7 +4,14 @@ project:
 
 website:
   title: "Ian Blad | HR Analytics Consultant"
-  favicon: Images/favicon.png
+  favicon: Images/New_leaf_logo.jpg
+
+  image: Images/social-preview.png
+  
+  # Enable social media metadata mapping
+  open-graph: true
+  twitter-card: true
+
   back-to-top-navigation: true
   repo-url: https://github.com/007Ian/Ians_Work.git
 

@@ -1,9 +1,11 @@
 ---
 title: "Data-Driven Workforce Solutions"
 subtitle: "Bridging the gap between Human Resources and Advanced Analytics"
+image: Images/social-preview.png
 format:
   html:
     page-layout: full
+
 ---
 
 <style>
