@@ -4,8 +4,6 @@ subtitle: "Transforming disconnected HR systems into a unified engine for strate
 format:
   html:
     toc: true
-    theme: darkly
-    default-theme: dark
 ---
 
 ## The Problem: The High Cost of Disconnected HR Data

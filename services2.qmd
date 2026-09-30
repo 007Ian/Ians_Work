@@ -1,6 +1,8 @@
 ---
 title: "Service Capabilities & Partnership Proposal"
 subtitle: "Transforming HR through Data, Automation, and Structured Systems"
+
+
 format:
   html:
     toc: false
@@ -8,6 +10,9 @@ format:
     embed-resources: true
     page-layout: article
 ---
+
+
+
 
 ::: {.services-hero}
 ::: {.section-label}
@@ -28,7 +33,7 @@ We provide actionable, data-backed solutions to optimize your workforce, protect
 ::: {.service-heading-copy}
 ## Predictive Turnover & Data Integration
 
-Understanding why employees leave shouldn't be based on guesswork or exit interviews alone. We turn your scattered HR data into clear, actionable insights.
+Understanding why employees leave shouldn't be based on guesswork or exit interviews alone. New Leaf can turn your scattered HR data into clear, actionable insights.
 :::
 :::
 
@@ -37,7 +42,7 @@ Understanding why employees leave shouldn't be based on guesswork or exit interv
 ::: {.service-card}
 ### Turnover Root-Cause Analysis
 
-We aggregate and clean your historical data to identify the exact variables driving employee churn. We build the models so you can make proactive retention decisions.
+New Leaf can aggregate and clean your historical data to identify the exact variables driving employee churn. We build the models so you can make proactive retention decisions.
 :::
 :::
 
@@ -45,17 +50,20 @@ We aggregate and clean your historical data to identify the exact variables driv
 ::: {.service-card}
 ### Data Pipelines & Hygiene
 
-Most companies struggle with multiple, unsynced HRIS systems. We design automated data pipelines that warehouse your data, ensuring all your platforms "talk" to each other seamlessly.
+Most companies struggle with multiple, unsynced HRIS systems. New Leaf can design automated data pipelines that warehouse your data, ensuring all your platforms "talk" to each other seamlessly.
 :::
 :::
 :::
 
 ::: {.impact-card .impact-retention}
+
 ::: {.impact-label}
 Proven Impact: Retention Analytics
 :::
 
-By running a deep-dive analysis for a recent client, New Leaf Consulting identified **a single, previously unnoticed factor driving 13% of their total turnover.** Addressing this one metric resulted in immediate improvements to retention and bottom-line savings.
+For a prior utilities company, I conducted a deep-dive analysis that identified a previously unnoticed factor **driving 13% of total turnover**.
+
+
 :::
 :::
 
@@ -93,11 +101,11 @@ Tailored testing mechanisms to ensure candidates actually possess the skills the
 :::
 
 ::: {.impact-card .impact-evaluations}
-::: {.impact-label}
-Proven Impact: Automated Evaluations
-:::
 
-We recently designed and deployed an automated employee evaluation system for a client that eliminated manual reporting bottlenecks. It is projected to save their management team **hundreds of hours every single year**.
+:::{.impact-label}
+Automated Evaluation System
+:::
+I recently designed and deployed an automated employee evaluation system for a company that eliminated manual reporting bottlenecks. It is projected to save their management team **hundreds of hours every single year**.
 :::
 :::
 
@@ -129,9 +137,4 @@ Next Steps
 ## Start with your current systems
 
 Every business has unique workforce challenges. We would love to schedule a brief discovery session to look at your current systems and identify where New Leaf Consulting can provide ROI.
-
-[Let's Work Together](contact.qmd)
-
 :::
-
-

@@ -78,11 +78,15 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="About Me – Ian Blad | HR Analytics Consultant">
 <meta property="og:description" content="Bridging the gap between Human Resources and Advanced Analytics">
-<meta property="og:image" content="Images/social-preview.png">
+<meta property="og:image" content="https://007ian.github.io/Ians_Work/Images/social-preview.png">
 <meta property="og:site_name" content="Ian Blad | HR Analytics Consultant">
+<meta property="og:image:height" content="1200">
+<meta property="og:image:width" content="1934">
 <meta name="twitter:title" content="About Me – Ian Blad | HR Analytics Consultant">
 <meta name="twitter:description" content="Bridging the gap between Human Resources and Advanced Analytics">
-<meta name="twitter:image" content="Images/social-preview.png">
+<meta name="twitter:image" content="https://007ian.github.io/Ians_Work/Images/social-preview.png">
+<meta name="twitter:image-height" content="1200">
+<meta name="twitter:image-width" content="1934">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -320,14 +324,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#transforming-the-workplace-through-data-driven-solutions" id="toc-transforming-the-workplace-through-data-driven-solutions" class="nav-link active" data-scroll-target="#transforming-the-workplace-through-data-driven-solutions">Transforming The Workplace through Data-Driven Solutions</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -353,8 +351,10 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="transforming-the-workplace-through-data-driven-solutions" class="level2">
-<h2 class="anchored" data-anchor-id="transforming-the-workplace-through-data-driven-solutions">Transforming The Workplace through Data-Driven Solutions</h2>
+<div class="services-hero">
+<div class="section-label">
+<p>Transforming The Workplace through Data-Driven Solutions</p>
+</div>
 <p>Every since I read the book 7 Habits of Highly effective people in High School, I have been fascinated in how our ideas and perceptions about the world can activly influence the way we experience it. I think its essential to be a well read person in order to be a creative and empathetic problem solver.</p>
 <p>Here are some of the books/papers that have had the biggest influence on my thinking and approach to work:</p>
 <p><strong>I/O Psychology:</strong></p>
@@ -386,10 +386,10 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Soul Making Theodicy</strong> by John Hick</p></li>
 <li><p><strong>Horrendus Evils and God’s Goodness</strong> by Marilyn McCord Adams</p></li>
 </ul>
+</div>
 <p><a href="Organizational_Analysis/Consulting_project.qmd">View My Projects</a> | <a href="./contact.html">Let’s Work Together</a></p>
 
 
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -478,7 +478,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/007ian\.github\.io\/Ians_Work\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

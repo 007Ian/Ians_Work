@@ -78,11 +78,15 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Ian Blad – Ian Blad | HR Analytics Consultant">
 <meta property="og:description" content="">
-<meta property="og:image" content="Images/social-preview.png">
+<meta property="og:image" content="https://007ian.github.io/Ians_Work/Images/social-preview.png">
 <meta property="og:site_name" content="Ian Blad | HR Analytics Consultant">
+<meta property="og:image:height" content="1200">
+<meta property="og:image:width" content="1934">
 <meta name="twitter:title" content="Ian Blad – Ian Blad | HR Analytics Consultant">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="Images/social-preview.png">
+<meta name="twitter:image" content="https://007ian.github.io/Ians_Work/Images/social-preview.png">
+<meta name="twitter:image-height" content="1200">
+<meta name="twitter:image-width" content="1934">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -357,8 +361,11 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="mailto:ianblad@gmail.com" class="email">ianblad@gmail.com</a>&nbsp;|&nbsp;4698738496&nbsp;|&nbsp;<a href="https://www.linkedin.com/in/ianblad">www.linkedin.com/in/ianblad</a></p>
 <section id="education" class="level2">
 <h2 class="anchored" data-anchor-id="education">Education</h2>
-<p><strong>PhD Psychology, Industrial/Organizational Emphasis</strong> <em>Seattle Pacific University</em> Seattle, Washington Start date: September 2026</p>
-<p><strong>B.S. Psychology, Industrial/Organizational Emphasis, DS Minor</strong> September 2021 - Present</p>
+<p><strong>PhD Psychology, Industrial/Organizational Emphasis</strong> <em>Seattle Pacific University</em> Seattle, Washington Present - 2030</p>
+<ul>
+<li>Currently doing research in how organizations construe anrratives and its effect on the workplace along with other research in the areas of employee engagement, retention, and belonging.</li>
+</ul>
+<p><strong>B.S. Psychology, Industrial/Organizational Emphasis, DS Minor</strong> September 2021 - July 2026</p>
 <p><em>Brigham Young University - Idaho</em> Rexburg, Idaho</p>
 <ul>
 <li><p>Developed strong research skills through coursework in statistics, experimental design, and data analysis forming Data Science Minor and a Statistics Certificate</p></li>
@@ -500,7 +507,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/007ian\.github\.io\/Ians_Work\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

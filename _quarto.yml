@@ -5,7 +5,7 @@ project:
 website:
   title: "Ian Blad | HR Analytics Consultant"
   favicon: Images/New_leaf_logo.jpg
-
+  site-url: "https://007ian.github.io/Ians_Work/"
   image: Images/social-preview.png
   
   # Enable social media metadata mapping
@@ -58,7 +58,6 @@ format:
     theme: 
       light: flatly
       dark: darkly
-    default-theme: dark
     default-image-extension: png
     css: styles.css
     toc: true

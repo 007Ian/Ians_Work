@@ -1,11 +1,16 @@
 ---
-title: "This is a Part of an Agentic AI Course We Developed for DS 295R Agent Engineering at BYUI"
+title: "Agentic AI Class"
 subtitle: "Unit 1, Lesson 8"
 format:
   html:
     page-layout: full
 
 ---
+
+
+
+# This is a Part of an Agentic AI Course We Developed for DS 295R Agent Engineering at BYUI
+
 
 ## Multi-Agents: Subagents, Handoffs, and More
 

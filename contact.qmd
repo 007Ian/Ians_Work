@@ -2,9 +2,28 @@
 title: "Let's Solve Your People Problems"
 ---
 
-Whether you need a full-scale workforce attrition analysis or a custom dashboard, I'm here to help. 
 
-* **Email:** ianblad2@gmail.com
-* **LinkedIn:** [Connect with me on LinkedIn](https://www.linkedin.com/in/ianblad)
 
-*Alternatively, feel free to drop me a message directly via LinkedIn InMail for consulting inquiries.*
+
+::: {.impact-card .impact-evaluations}
+::: {.impact-label}
+**Email:**
+:::
+ianblad@gmail.com
+:::
+
+
+::: {.impact-card .impact-evaluations}
+::: {.impact-label}
+**Phone:**
+:::
+469-873-8496
+:::
+
+
+::: {.impact-card .impact-evaluations}
+::: {.impact-label}
+**LinkedIn:**
+:::
+[Connect with me on LinkedIn](https://www.linkedin.com/in/ianblad)
+:::
