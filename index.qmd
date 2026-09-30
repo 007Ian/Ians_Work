@@ -5,7 +5,7 @@ image: Images/social-preview.png
 format:
   html:
     page-layout: full
-
+    toc: false
 ---
 
 <style>

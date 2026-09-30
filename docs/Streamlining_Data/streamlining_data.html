@@ -89,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -323,18 +323,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#the-problem-the-high-cost-of-disconnected-hr-data" id="toc-the-problem-the-high-cost-of-disconnected-hr-data" class="nav-link active" data-scroll-target="#the-problem-the-high-cost-of-disconnected-hr-data">The Problem: The High Cost of Disconnected HR Data</a></li>
-  <li><a href="#the-architecture-unifying-your-people-data" id="toc-the-architecture-unifying-your-people-data" class="nav-link" data-scroll-target="#the-architecture-unifying-your-people-data">The Architecture: Unifying Your People Data</a></li>
-  <li><a href="#the-solution-strategy-why-google-bigquery" id="toc-the-solution-strategy-why-google-bigquery" class="nav-link" data-scroll-target="#the-solution-strategy-why-google-bigquery">The Solution Strategy: Why Google BigQuery?</a></li>
-  <li><a href="#the-business-impact" id="toc-the-business-impact" class="nav-link" data-scroll-target="#the-business-impact">The Business Impact</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -359,48 +348,73 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="the-problem-the-high-cost-of-disconnected-hr-data" class="level2">
-<h2 class="anchored" data-anchor-id="the-problem-the-high-cost-of-disconnected-hr-data">The Problem: The High Cost of Disconnected HR Data</h2>
+<div class="services-hero">
+<div class="section-label">
+<p>The Problem</p>
+</div>
+<section id="the-high-cost-of-disconnected-hr-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-high-cost-of-disconnected-hr-data">The High Cost of Disconnected HR Data</h2>
 <p>For many HR Directors and business leaders, answering a simple question like <em>“What is our turnover rate correlated with recent compensation changes?”</em> is an agonizing, multi-day process.</p>
 <p>Why? Because HR data is inherently messy and scattered. Your recruitment data lives in an Applicant Tracking System (ATS), compensation sits in Payroll, employee sentiment is trapped in a survey platform, and historical performance reviews are buried in endless Excel spreadsheets.</p>
-<p>This <strong>siloed architecture</strong> creates severe bottlenecks:</p>
-<ul>
-<li><p><strong>Wasted Time:</strong> Your HR team spends hours every week manually exporting CSVs, running complex VLOOKUPs, and cleaning data instead of actually analyzing it.</p></li>
-<li><p><strong>Reactive Blind Spots:</strong> By the time a report is compiled, the data is already stale, making it impossible to proactively address flight risks or burnout.</p></li>
-<li><p><strong>Data Trust Issues:</strong> When leadership gets conflicting numbers because “my spreadsheet hasn’t been updated yet,” trust in HR metrics erodes.</p></li>
-</ul>
 </section>
-<section id="the-architecture-unifying-your-people-data" class="level2">
+</div>
+<div class="service-section">
+<div class="section-label">
+<p>Where the work gets stuck</p>
+</div>
+<p>The siloed architecture creates severe bottlenecks:</p>
+<div class="offering-list">
+<section id="wasted-time" class="level3 offering-item">
+<h3 class="anchored" data-anchor-id="wasted-time">Wasted Time</h3>
+<p>Your HR team spends hours every week manually exporting CSVs, running complex VLOOKUPs, and cleaning data instead of actually analyzing it.</p>
+</section>
+<section id="reactive-blind-spots" class="level3 offering-item">
+<h3 class="anchored" data-anchor-id="reactive-blind-spots">Reactive Blind Spots</h3>
+<p>By the time a report is compiled, the data is already stale, making it impossible to proactively address flight risks or burnout.</p>
+</section>
+<section id="data-trust-issues" class="level3 offering-item">
+<h3 class="anchored" data-anchor-id="data-trust-issues">Data Trust Issues</h3>
+<p>When leadership gets conflicting numbers because “my spreadsheet hasn’t been updated yet,” trust in HR metrics erodes.</p>
+</section>
+</div>
+</div>
+<div class="service-section">
+<div class="service-heading">
+<div class="service-number">
+<p>01</p>
+</div>
+<section id="the-architecture-unifying-your-people-data" class="level2 service-heading-copy">
 <h2 class="anchored" data-anchor-id="the-architecture-unifying-your-people-data">The Architecture: Unifying Your People Data</h2>
 <p>To solve this, we don’t need to replace your existing HR software. Instead, we build an automated bridge.</p>
 <p>Below is the architecture strategy I use to pull data out of isolated silos and organize it into a single, highly secure data warehouse.</p>
+</section>
+</div>
+<div class="service-card architecture-card">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">graph LR
-    %%{init: {'theme': 'dark', 'themeVariables': { 'primaryTextColor': '#fff', 'lineColor': '#888'}}}%%
-    
-    %% Define dark mode styles with increased contrast
-    classDef source fill:#2c3e50,stroke:#7f8c8d,stroke-width:1px,color:white;
-    classDef pipeline fill:#1a3a4a,stroke:#3498db,stroke-width:2px,color:white,stroke-dasharray: 5 5;
-    classDef warehouse fill:#3e2c1a,stroke:#e67e22,stroke-width:2px,color:white;
-    classDef dashboard fill:#1a3e26,stroke:#2ecc71,stroke-width:2px,color:white;
+    %% Removed hardcoded init theme to allow Quarto to toggle variables automatically
+    %% Changed fill to none so text inherits light/dark contrast automatically
+
+    classDef source fill:none,stroke:#7f8c8d,stroke-width:2px;
+    classDef pipeline fill:none,stroke:#3498db,stroke-width:2px,stroke-dasharray: 5 5;
+    classDef warehouse fill:none,stroke:#e67e22,stroke-width:2px;
+    classDef dashboard fill:none,stroke:#2ecc71,stroke-width:2px;
 
     %% Nodes
     A[ATS Data&lt;br&gt;e.g., Lever, Greenhouse]:::source
     B[Payroll / HRIS&lt;br&gt;e.g., ADP, Gusto]:::source
     C[Engagement Surveys&lt;br&gt;e.g., CultureAmp]:::source
     D[Manual Tracking&lt;br&gt;Excel, CSVs]:::source
-    
-    E(Automated Data Pipeline&lt;br&gt;Extraction &amp; Cleaning):::pipeline
-    
-    F[(Google BigQuery&lt;br&gt;Central Data Warehouse)]:::warehouse
-    
-    G[Business Intelligence Dashboard&lt;br&gt;e.g., Python, PowerBI]:::dashboard
 
-    %% Flow - thickened lines for dark background visibility
+    E(Automated Data Pipeline&lt;br&gt;Extraction &amp; Cleaning):::pipeline
+    F[(Google BigQuery&lt;br&gt;Central Data Warehouse)]:::warehouse
+    G[Business Intelligence Dashboard&lt;br&gt;e.g., SharePoint, Paycom]:::dashboard
+
+    %% Flow 
     A ==&gt; E
     B ==&gt; E
     C ==&gt; E
@@ -413,31 +427,79 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-</section>
-<section id="the-solution-strategy-why-google-bigquery" class="level2">
+</div>
+</div>
+<div class="service-section">
+<div class="service-heading">
+<div class="service-number">
+<p>02</p>
+</div>
+<section id="the-solution-strategy-why-google-bigquery" class="level2 service-heading-copy">
 <h2 class="anchored" data-anchor-id="the-solution-strategy-why-google-bigquery">The Solution Strategy: Why Google BigQuery?</h2>
 <p>For Small to Medium-Sized Businesses (SMBs), building a data warehouse might sound like an expensive, enterprise-only endeavor. But <strong>Google BigQuery</strong> is cheap and scalable, making it the absolute best choice for growing HR teams:</p>
-<ul>
-<li><strong>Cost-Effective (Pay-As-You-Go):</strong> You don’t need to buy massive servers. BigQuery is “serverless,” meaning you only pay for the exact queries you run. For most SMB HR datasets, the storage and processing costs are mere pennies a month.</li>
-<li><strong>Enterprise-Grade Security:</strong> HR data is highly sensitive. BigQuery is backed by Google’s world-class security infrastructure, allowing us to set strict access controls. We can easily mask sensitive fields (like salaries or social security numbers) so only authorized leadership can view them.</li>
-<li><strong>Zero-Maintenance Scalability:</strong> Whether your company has 50 employees or 5,000, BigQuery handles the load effortlessly. As your business grows, your data architecture doesn’t have to change.</li>
-<li><strong>Seamless Integration:</strong> It connects natively to powerful Business Intelligence tools, turning raw code into beautiful, interactive dashboards that anyone on the executive team can understand.</li>
-</ul>
 </section>
-<section id="the-business-impact" class="level2">
+</div>
+<div class="offering-list">
+<section id="cost-effective-pay-as-you-go" class="level3 offering-item">
+<h3 class="anchored" data-anchor-id="cost-effective-pay-as-you-go">Cost-Effective (Pay-As-You-Go)</h3>
+<p>You don’t need to buy massive servers. BigQuery is “serverless,” meaning you only pay for the exact queries you run. For most SMB HR datasets, the storage and processing costs are mere pennies a month.</p>
+</section>
+<section id="enterprise-grade-security" class="level3 offering-item">
+<h3 class="anchored" data-anchor-id="enterprise-grade-security">Enterprise-Grade Security</h3>
+<p>HR data is highly sensitive. BigQuery is backed by Google’s world-class security infrastructure, allowing us to set strict access controls. We can easily mask sensitive fields (like salaries or social security numbers) so only authorized leadership can view them.</p>
+</section>
+<section id="zero-maintenance-scalability" class="level3 offering-item">
+<h3 class="anchored" data-anchor-id="zero-maintenance-scalability">Zero-Maintenance Scalability</h3>
+<p>Whether your company has 50 employees or 5,000, BigQuery handles the load effortlessly. As your business grows, your data architecture doesn’t have to change.</p>
+</section>
+<section id="seamless-integration" class="level3 offering-item">
+<h3 class="anchored" data-anchor-id="seamless-integration">Seamless Integration</h3>
+<p>It connects natively to powerful Business Intelligence tools, turning raw code into beautiful, interactive dashboards that anyone on the executive team can understand.</p>
+</section>
+</div>
+</div>
+<div class="service-section">
+<div class="service-heading">
+<div class="service-number">
+<p>03</p>
+</div>
+<section id="the-business-impact" class="level2 service-heading-copy">
 <h2 class="anchored" data-anchor-id="the-business-impact">The Business Impact</h2>
 <p>By centralizing your HR data into BigQuery and layering a visual dashboard on top, we shift the HR function from a tactical cost center to a strategic business partner.</p>
-<p>The ultimate Return on Investment (ROI) includes:</p>
-<ul>
-<li><p><strong>Saved Time:</strong> Complete elimination of manual data entry and spreadsheet consolidation. Reports that used to take days now refresh automatically in seconds.</p></li>
-<li><p><strong>A Single Source of Truth:</strong> End the meeting-room debates over whose numbers are correct. Everyone works from the same live, validated dataset.</p></li>
-<li><p><strong>Predictive Turnover Modeling:</strong> Move from asking <em>“Who left last quarter?”</em> to <em>“Who is showing signs of leaving next quarter?”</em> by correlating engagement scores with compensation gaps.</p></li>
-<li><p><strong>Strategic Agility:</strong> Instantly view real-time metrics on headcount pacing, diversity initiatives, and compensation equity at the click of a button.</p></li>
-</ul>
-<hr>
-
-
 </section>
+</div>
+<div class="section-label">
+<p>The ultimate Return on Investment (ROI) includes</p>
+</div>
+<div class="grid service-grid">
+<div class="g-col-12 g-col-md-6">
+<section id="saved-time" class="level3 service-card">
+<h3 class="anchored" data-anchor-id="saved-time">Saved Time</h3>
+<p>Complete elimination of manual data entry and spreadsheet consolidation. Reports that used to take days now refresh automatically in seconds.</p>
+</section>
+</div>
+<div class="g-col-12 g-col-md-6">
+<section id="a-single-source-of-truth" class="level3 service-card">
+<h3 class="anchored" data-anchor-id="a-single-source-of-truth">A Single Source of Truth</h3>
+<p>End the meeting-room debates over whose numbers are correct. Everyone works from the same live, validated dataset.</p>
+</section>
+</div>
+<div class="g-col-12 g-col-md-6">
+<section id="predictive-turnover-modeling" class="level3 service-card">
+<h3 class="anchored" data-anchor-id="predictive-turnover-modeling">Predictive Turnover Modeling</h3>
+<p>Move from asking <em>“Who left last quarter?”</em> to <em>“Who is showing signs of leaving next quarter?”</em> by correlating engagement scores with compensation gaps.</p>
+</section>
+</div>
+<div class="g-col-12 g-col-md-6">
+<section id="strategic-agility" class="level3 service-card">
+<h3 class="anchored" data-anchor-id="strategic-agility">Strategic Agility</h3>
+<p>Instantly view real-time metrics on headcount pacing, diversity initiatives, and compensation equity at the click of a button.</p>
+</section>
+</div>
+</div>
+</div>
+
+
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

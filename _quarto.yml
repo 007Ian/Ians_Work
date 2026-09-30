@@ -58,6 +58,7 @@ format:
     theme: 
       light: flatly
       dark: darkly
+    default-theme: light
     default-image-extension: png
     css: styles.css
     toc: true
