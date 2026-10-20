@@ -1,0 +1,205 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Layout
+  title="New Leaf Services | Service Capabilities & Partnership Proposal"
+  description="Transforming HR through Data, Automation, and Structured Systems. Predictive turnover modeling, automated evaluations, and foundational data infrastructure."
+>
+  <div class="py-16 sm:py-24 lg:py-32">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      
+      <!-- PAGE HEADER -->
+      <div class="max-w-3xl mb-16 sm:mb-24">
+        <div class="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-200/80 px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-widest text-emerald-800 shadow-sm mb-6">
+          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+          Capability Portfolio
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-950 font-sans leading-tight">
+          What is the Next Problem You Wish You Had Time to Solve?
+        </h1>
+        <p class="mt-6 text-xl sm:text-2xl text-slate-600 font-normal leading-relaxed">
+          Transforming HR through Data, Automation, and Structured Systems.
+        </p>
+      </div>
+
+      <!-- EXECUTIVE SUMMARY HERO CARD -->
+      <div class="rounded-3xl border border-white/70 bg-white/60 p-8 sm:p-12 lg:p-14 backdrop-blur-2xl shadow-[0_12px_40px_rgba(0,0,0,0.04),inset_0_1px_1px_rgba(255,255,255,0.95)] mb-20 sm:mb-28">
+        <div class="flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-emerald-700 font-mono mb-4">
+          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+          Executive Summary
+        </div>
+        <div class="max-w-4xl space-y-4">
+          <p class="text-lg sm:text-xl text-slate-800 leading-relaxed font-medium">
+            At <strong class="text-slate-950 font-bold">New Leaf Consulting</strong>, we bridge the gap between human resources and advanced data analytics. Modern businesses lose countless hours and capital to unoptimized hiring, hidden turnover drivers, and disconnected data systems.
+          </p>
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+            We provide actionable, data-backed solutions to optimize your workforce, protect your company from compliance risks, and give your management team their time back.
+          </p>
+        </div>
+      </div>
+
+      <!-- SERVICE 01 -->
+      <section class="mb-24 sm:mb-32">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-10 border-b border-white/60 pb-8">
+          <div class="lg:col-span-3">
+            <span class="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 font-mono text-2xl font-extrabold shadow-sm">
+              01
+            </span>
+          </div>
+          <div class="lg:col-span-9">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-950 font-sans">
+              Predictive Turnover & Data Integration
+            </h2>
+            <p class="mt-3 text-lg text-slate-600 leading-relaxed max-w-2xl">
+              Understanding why employees leave shouldn't be based on guesswork or exit interviews alone. We turn your scattered HR data into clear, actionable insights.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div class="rounded-3xl border border-white/70 bg-white/55 p-8 sm:p-10 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:border-emerald-400/50 hover:bg-white/70 transition-all duration-300">
+            <h3 class="text-xl font-bold text-slate-950 font-sans">Turnover Root-Cause Analysis</h3>
+            <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+              We aggregate and clean your historical data to identify the exact variables driving employee churn. We build the models so you can make proactive retention decisions.
+            </p>
+          </div>
+
+          <div class="rounded-3xl border border-white/70 bg-white/55 p-8 sm:p-10 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:border-emerald-400/50 hover:bg-white/70 transition-all duration-300">
+            <h3 class="text-xl font-bold text-slate-950 font-sans">Data Pipelines & Hygiene</h3>
+            <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+              Most companies struggle with multiple, unsynced HRIS systems. We design automated data pipelines that warehouse your data, ensuring all your platforms "talk" to each other seamlessly.
+            </p>
+          </div>
+        </div>
+
+        <!-- Evidence Card 01 -->
+        <div class="rounded-3xl border border-emerald-200/80 bg-gradient-to-r from-emerald-50/90 to-teal-50/80 p-8 sm:p-10 backdrop-blur-xl shadow-sm">
+          <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 font-mono mb-2">
+            <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+            Proven Impact: Retention Analytics
+          </div>
+          <p class="text-lg sm:text-xl font-medium text-slate-900 mt-2 leading-relaxed">
+            By running a deep-dive analysis for a recent client, New Leaf Consulting identified <strong class="text-emerald-800 font-bold">a single, previously unnoticed factor driving 13% of their total turnover.</strong> Addressing this one metric resulted in immediate improvements to retention and bottom-line savings.
+          </p>
+          <div class="mt-6">
+            <a href={`${base}/projects/organizational-analysis`} class="inline-flex items-center gap-1.5 text-sm font-bold text-emerald-700 hover:text-emerald-800">
+              Read Predictive Retention Case Study (Simulated Research) →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICE 02 -->
+      <section class="mb-24 sm:mb-32">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-10 border-b border-white/60 pb-8">
+          <div class="lg:col-span-3">
+            <span class="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 font-mono text-2xl font-extrabold shadow-sm">
+              02
+            </span>
+          </div>
+          <div class="lg:col-span-9">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-950 font-sans">
+              Intelligent Selection & Evaluation Systems
+            </h2>
+            <p class="mt-3 text-lg text-slate-600 leading-relaxed max-w-2xl">
+              A bad hire is expensive; an inefficient evaluation system drains management. We modernize how you bring people in and how you measure their success.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div class="rounded-3xl border border-white/70 bg-white/55 p-8 sm:p-10 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:border-emerald-400/50 hover:bg-white/70 transition-all duration-300">
+            <h3 class="text-xl font-bold text-slate-950 font-sans">Research-Backed Structured Interviews</h3>
+            <p class="mt-4 text-base text-slate-600 leading-relaxed">
+              We design interview frameworks that remove bias, improve candidate quality, and standardize your hiring process.
+            </p>
+          </div>
+
+          <div class="rounded-3xl border border-white/70 bg-white/55 p-8 sm:p-10 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:border-emerald-400/50 hover:bg-white/70 transition-all duration-300">
+            <h3 class="text-xl font-bold text-slate-950 font-sans">AI-Assisted Selection Analytics</h3>
+            <p class="mt-4 text-base text-slate-600 leading-relaxed">
+              We systematize candidate selection using predictive analytics to identify top performers before you make an offer.
+            </p>
+          </div>
+
+          <div class="rounded-3xl border border-white/70 bg-white/55 p-8 sm:p-10 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:border-emerald-400/50 hover:bg-white/70 transition-all duration-300">
+            <h3 class="text-xl font-bold text-slate-950 font-sans">Custom Pre-Hire Assessments</h3>
+            <p class="mt-4 text-base text-slate-600 leading-relaxed">
+              Tailored testing mechanisms to ensure candidates actually possess the skills they claim on paper.
+            </p>
+          </div>
+        </div>
+
+        <!-- Evidence Card 02 -->
+        <div class="rounded-3xl border border-emerald-200/80 bg-gradient-to-r from-emerald-50/90 to-teal-50/80 p-8 sm:p-10 backdrop-blur-xl shadow-sm">
+          <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 font-mono mb-2">
+            <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+            Proven Impact: Automated Evaluations
+          </div>
+          <p class="text-lg sm:text-xl font-medium text-slate-900 mt-2 leading-relaxed">
+            We recently designed and deployed an automated employee evaluation system for a client that eliminated manual reporting bottlenecks. It is projected to save their management team <strong class="text-emerald-800 font-bold">hundreds of hours every single year</strong>.
+          </p>
+        </div>
+      </section>
+
+      <!-- SERVICE 03 -->
+      <section class="mb-24 sm:mb-32">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-10 border-b border-white/60 pb-8">
+          <div class="lg:col-span-3">
+            <span class="inline-flex items-center justify-center h-14 w-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 font-mono text-2xl font-extrabold shadow-sm">
+              03
+            </span>
+          </div>
+          <div class="lg:col-span-9">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-950 font-sans">
+              Foundational HR Infrastructure
+            </h2>
+            <p class="mt-3 text-lg text-slate-600 leading-relaxed max-w-2xl">
+              Whether you are a startup building from scratch or an established business needing a compliance check, we provide the architecture to keep you secure and organized.
+            </p>
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-white/70 bg-white/55 p-8 sm:p-12 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)]">
+          <h3 class="text-2xl font-bold text-slate-950 font-sans">Ground-Zero Data Housing</h3>
+          <p class="mt-4 text-lg text-slate-600 leading-relaxed max-w-3xl">
+            <strong class="text-slate-950 font-semibold">No HR data infrastructure? No problem.</strong> For organizations currently tracking employees on paper or scattered files, we build customized foundational databases. From highly automated Google Sheets frameworks to robust SQL database solutions, we give you a scalable template to start capturing valuable workforce data from day one.
+          </p>
+        </div>
+      </section>
+
+      <!-- CLOSING CALL TO ACTION -->
+      <section class="rounded-3xl bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950/95 p-10 sm:p-16 text-white shadow-2xl border border-white/10 relative overflow-hidden">
+        <div class="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-emerald-500/25 blur-3xl pointer-events-none" aria-hidden="true"></div>
+        <div class="relative z-10 max-w-2xl">
+          <div class="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-400/30 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-emerald-400 mb-6">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            Next Steps
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight font-sans leading-tight">
+            Start with your current systems
+          </h2>
+          <p class="mt-5 text-lg text-zinc-300 leading-relaxed font-normal">
+            Every business has unique workforce challenges. We would love to schedule a brief discovery session to look at your current systems and identify where New Leaf Consulting can provide ROI.
+          </p>
+          <div class="mt-8">
+            <a
+              href={`${base}/contact`}
+              class="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-emerald-500 to-brand-400 px-8 py-4 text-base font-bold text-slate-950 shadow-glow transition-all duration-300 hover:from-emerald-400 hover:to-brand-300 hover:-translate-y-0.5"
+            >
+              Let's Work Together
+              <svg class="ml-2.5 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</Layout>
+

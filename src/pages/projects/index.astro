@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const projects = [
+  {
+    title: 'Streamlining HR Data: From Chaos to Clarity with Google BigQuery',
+    subtitle: 'Transforming disconnected HR systems into a unified engine for strategic decision-making.',
+    category: 'Cloud Architecture & ETL',
+    tag: 'BigQuery / Pipelines',
+    slug: 'streamlining-data',
+    stat: '0-Downtime',
+    statLabel: 'Serverless Warehouse',
+    description: 'How to break down silos across ATS, Payroll, and sentiment surveys to create a single source of truth for executive workforce metrics.',
+  },
+  {
+    title: 'Predictive Turnover Analysis: Optimizing Retention in Tech Teams',
+    subtitle: 'Hypothetical analysis using simulated data modeled after empirical I/O turnover research.',
+    category: 'Predictive Analytics & I/O',
+    tag: 'Simulated Research',
+    slug: 'organizational-analysis',
+    stat: '75.8%',
+    statLabel: 'Prediction Accuracy',
+    description: 'A hypothetical case study using simulated data reflecting empirical turnover research. Diagnosed a 23% spike in post-promotion flight risk and built cross-validated logistic regression models.',
+  },
+  {
+    title: 'Multi-Agent AI Course: Engineering Autonomous Research Pipelines',
+    subtitle: 'Hands-on curriculum engineered for DS 295R Agent Engineering at Brigham Young University - Idaho.',
+    category: 'AI Systems Engineering',
+    tag: 'LangChain & Subagents',
+    slug: 'agentic-ai',
+    stat: 'Multi-Agent',
+    statLabel: 'Separation of Concerns',
+    description: 'Production architecture showing how to decompose complex tasks into planner, research, analyst, and writer subagents.',
+  },
+];
+---
+
+<Layout
+  title="Case Studies & Technical Engagements | New Leaf Analytics"
+  description="Explore technical case studies and diagnostic engagements by Ian Blad. Predictive turnover modeling, Google BigQuery pipelines, and multi-agent AI systems."
+>
+  <div class="py-16 sm:py-24 lg:py-32">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      
+      <!-- HEADER -->
+      <div class="max-w-3xl mb-16 sm:mb-24">
+        <div class="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-200/80 px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-widest text-emerald-800 shadow-sm mb-6">
+          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+          Case Studies & Research
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-950 font-sans leading-tight">
+          Selected Projects & Case Studies
+        </h1>
+        <p class="mt-6 text-xl sm:text-2xl text-slate-600 font-normal leading-relaxed">
+          Deep dives into predictive retention modeling, automated data warehousing, and system architectures.
+        </p>
+      </div>
+
+      <!-- PROJECTS LIST (Airy Glass Bento Cards) -->
+      <div class="space-y-10 sm:space-y-12 mb-24">
+        {projects.map((proj, idx) => (
+          <div class="rounded-3xl border border-white/70 bg-white/55 p-8 sm:p-12 lg:p-14 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.04),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:border-emerald-400/60 hover:bg-white/70 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              
+              <!-- Left Column: Content -->
+              <div class="lg:col-span-8 space-y-4">
+                <div class="flex items-center gap-3">
+                  <span class="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 px-3 py-1 text-xs font-bold text-emerald-800 font-mono shadow-sm">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                    CASE STUDY 0{idx + 1}
+                  </span>
+                  <span class="text-xs text-slate-500 font-mono font-semibold">{proj.category}</span>
+                </div>
+
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950 font-sans tracking-tight">
+                  <a href={`${base}/projects/${proj.slug}`} class="hover:text-emerald-700 transition-colors">
+                    {proj.title}
+                  </a>
+                </h2>
+
+                <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+                  {proj.description}
+                </p>
+
+                <div class="pt-4">
+                  <a
+                    href={`${base}/projects/${proj.slug}`}
+                    class="inline-flex items-center gap-2 text-base font-bold text-emerald-600 hover:text-emerald-700 group"
+                  >
+                    Read Technical Report 
+                    <span class="transition-transform group-hover:translate-x-1">→</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right Column: KPI Metric Callout -->
+              <div class="lg:col-span-4 flex lg:justify-end">
+                <div class="w-full sm:w-auto min-w-[200px] rounded-2xl bg-white/60 border border-white/80 p-6 backdrop-blur-md shadow-sm text-center sm:text-right">
+                  <div class="text-4xl font-extrabold font-mono text-emerald-600">{proj.stat}</div>
+                  <div class="text-xs font-bold uppercase tracking-wider text-slate-800 mt-1">{proj.statLabel}</div>
+                  <div class="mt-3 text-xs font-mono text-slate-500">{proj.tag}</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</Layout>
+

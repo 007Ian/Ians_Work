@@ -1,0 +1,240 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Layout
+  title="Ian Blad | Curriculum Vitae & Professional Resume"
+  description="Ian Blad's Curriculum Vitae. Industrial-Organizational Psychology PhD researcher, data science practitioner, and former HR Analyst at HydroMax USA."
+>
+  <div class="py-16 sm:py-24 lg:py-32">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      
+      <!-- RESUME HEADER CARD -->
+      <div class="rounded-3xl border border-white/70 bg-white/65 p-8 sm:p-12 backdrop-blur-2xl shadow-[0_12px_40px_rgba(0,0,0,0.04),inset_0_1px_1px_rgba(255,255,255,0.95)] mb-12 sm:mb-16">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-8 border-b border-slate-200/60">
+          <div>
+            <div class="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-200/80 px-3.5 py-1 text-xs font-bold text-emerald-800 uppercase tracking-widest shadow-sm mb-3">
+              Curriculum Vitae
+            </div>
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-950 font-sans">
+              Ian Blad
+            </h1>
+            <p class="text-lg text-slate-600 mt-1 font-medium">
+              Industrial-Organizational Analytics Consultant & PhD Researcher
+            </p>
+          </div>
+
+          <!-- Actions: Download DOCX & Print -->
+          <div class="flex items-center gap-3 shrink-0">
+            <a
+              href={`${base}/Ian_Blad_Resume.docx`}
+              download
+              class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-600 to-brand-500 px-5 py-3 text-sm font-semibold text-white shadow-glow-sm hover:from-emerald-500 hover:to-brand-400 transition-all hover:-translate-y-0.5"
+            >
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              Download Resume
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Links Strip -->
+        <div class="pt-6 flex flex-wrap items-center gap-6 text-sm text-slate-600">
+          <a href="mailto:ian@newleaf-analytics.com" class="flex items-center gap-2 hover:text-emerald-700 transition-colors">
+            <svg class="h-4 w-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            ian@newleaf-analytics.com
+          </a>
+          <a href="tel:4698738496" class="flex items-center gap-2 hover:text-emerald-700 transition-colors">
+            <svg class="h-4 w-4 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            (469) 873-8496
+          </a>
+          <a href="https://www.linkedin.com/in/ianblad" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-emerald-700 transition-colors">
+            <svg class="h-4 w-4 text-emerald-600 fill-current" viewBox="0 0 24 24">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+            linkedin.com/in/ianblad
+          </a>
+        </div>
+      </div>
+
+      <!-- EDUCATION SECTION -->
+      <section class="mb-14 sm:mb-20">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="h-8 w-1 rounded-full bg-emerald-500"></div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950 font-sans tracking-tight">Education</h2>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Item 1: PhD -->
+          <div class="rounded-3xl border border-white/70 bg-white/55 p-8 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)]">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <h3 class="text-xl font-bold text-slate-950">PhD Psychology, Industrial/Organizational Emphasis</h3>
+              <span class="text-xs font-mono font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                Present - 2030
+              </span>
+            </div>
+            <div class="text-sm font-semibold text-slate-700 mt-1">
+              <em>Seattle Pacific University</em> <span class="text-slate-400 font-normal">• Seattle, Washington</span>
+            </div>
+            <ul class="mt-4 space-y-2 text-base text-slate-600 list-disc list-inside leading-relaxed">
+              <li>Currently doing research in how organizations construe narratives and its effect on the workplace along with other research in the areas of employee engagement, retention, and belonging.</li>
+            </ul>
+          </div>
+
+          <!-- Item 2: BS -->
+          <div class="rounded-3xl border border-white/70 bg-white/55 p-8 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)]">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <h3 class="text-xl font-bold text-slate-950">B.S. Psychology, Industrial/Organizational Emphasis, DS Minor</h3>
+              <span class="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-3 py-1 rounded-full">
+                September 2021 - July 2026
+              </span>
+            </div>
+            <div class="text-sm font-semibold text-slate-700 mt-1">
+              <em>Brigham Young University - Idaho</em> <span class="text-slate-400 font-normal">• Rexburg, Idaho</span>
+            </div>
+            <ul class="mt-4 space-y-2 text-base text-slate-600 list-disc list-inside leading-relaxed">
+              <li>Developed strong research skills through coursework in statistics, experimental design, and data analysis forming Data Science Minor and a Statistics Certificate</li>
+              <li>Mastered skills in Statistical analysis, R, Python, SQL, Microsoft 365,and GitHub</li>
+              <li>Learned analytical philosophical skills in philosophy minor classes</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROFESSIONAL EXPERIENCE -->
+      <section class="mb-14 sm:mb-20">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="h-8 w-1 rounded-full bg-emerald-500"></div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950 font-sans tracking-tight">Professional Experience</h2>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Item 1: HydroMax -->
+          <div class="rounded-3xl border border-white/70 bg-white/55 p-8 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)]">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <h3 class="text-xl font-bold text-slate-950">HR Analyst Internship</h3>
+              <span class="text-xs font-mono font-bold text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                May 2025 - August 2025
+              </span>
+            </div>
+            <div class="text-sm font-semibold text-slate-700 mt-1">
+              <em>HydroMax USA</em> <span class="text-slate-400 font-normal">• Flower Mound, Texas</span>
+            </div>
+            <ul class="mt-4 space-y-2 text-base text-slate-600 list-disc list-inside leading-relaxed">
+              <li>Created an automated employee evaluation system projected to save hundreds of management hours yearly</li>
+              <li>Executed multiple analysis in employee turnover, recruiter effectiveness and industry standards in HR metrics using R and Python tools</li>
+            </ul>
+          </div>
+
+          <!-- Item 2: Volunteer Leader -->
+          <div class="rounded-3xl border border-white/70 bg-white/55 p-8 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)]">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <h3 class="text-xl font-bold text-slate-950">Full-Time Volunteer Leader</h3>
+              <span class="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-3 py-1 rounded-full">
+                August 2021 - August 2023
+              </span>
+            </div>
+            <div class="text-sm font-semibold text-slate-700 mt-1">
+              <em>Church Of Jesus Christ of Latter-day Saints</em> <span class="text-slate-400 font-normal">• Scotland / Ireland</span>
+            </div>
+            <ul class="mt-4 space-y-2 text-base text-slate-600 list-disc list-inside leading-relaxed">
+              <li>Trained several teams sized from 8-30 people every few months</li>
+              <li>Gave presentations and taught skills weekly, and promoted well-being in various leadership positions</li>
+            </ul>
+          </div>
+
+          <!-- Item 3: TA -->
+          <div class="rounded-3xl border border-white/70 bg-white/55 p-8 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)]">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <h3 class="text-xl font-bold text-slate-950">Data Science Programming TA</h3>
+              <span class="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-3 py-1 rounded-full">
+                Jan 2026 - Present
+              </span>
+            </div>
+            <div class="text-sm font-semibold text-slate-700 mt-1">
+              <em>Brigham Young University Idaho</em> <span class="text-slate-400 font-normal">• Rexburg, Idaho</span>
+            </div>
+            <ul class="mt-4 space-y-2 text-base text-slate-600 list-disc list-inside leading-relaxed">
+              <li>Assisting in the teaching and grading for 3 classes of ~30 students for an intermediate data science course.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- KEY PROJECTS -->
+      <section class="mb-14 sm:mb-20">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="h-8 w-1 rounded-full bg-emerald-500"></div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950 font-sans tracking-tight">Key Projects</h2>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Project 1 -->
+          <div class="rounded-3xl border border-white/70 bg-white/55 p-8 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)]">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <h3 class="text-xl font-bold text-slate-950">Curriculum Creation for Agentic AI Courses at BYUI</h3>
+              <span class="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-3 py-1 rounded-full">
+                January 2026 - April 2026
+              </span>
+            </div>
+            <div class="text-sm font-semibold text-slate-700 mt-1">
+              <em>Brigham Young University Idaho</em> <span class="text-slate-400 font-normal">• Rexburg, Idaho</span>
+            </div>
+            <ul class="mt-4 space-y-2 text-base text-slate-600 list-disc list-inside leading-relaxed">
+              <li>Helped created curriculums for upcoming agentic AI classes</li>
+              <li>Gained extensive knowledge in the Agentic AI space</li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-white/80">
+              <a href={`${base}/projects/agentic-ai`} class="text-sm font-bold text-emerald-700 hover:text-emerald-800">
+                View Curriculum Module Case Study →
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="rounded-3xl border border-white/70 bg-white/55 p-8 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)]">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <h3 class="text-xl font-bold text-slate-950">Belonging Project for BYUI</h3>
+              <span class="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-3 py-1 rounded-full">
+                September 2024 - Present
+              </span>
+            </div>
+            <div class="text-sm font-semibold text-slate-700 mt-1">
+              <em>Brigham Young University Idaho</em> <span class="text-slate-400 font-normal">• Rexburg, Idaho</span>
+            </div>
+            <ul class="mt-4 space-y-2 text-base text-slate-600 list-disc list-inside leading-relaxed">
+              <li>Conducted literature review with faculty members on student belonging / retention</li>
+              <li>Currently working on initiative to improve inclusion and engagement at BYUI</li>
+            </ul>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="rounded-3xl border border-white/70 bg-white/55 p-8 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)]">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+              <h3 class="text-xl font-bold text-slate-950">MILB Promotion Analysis</h3>
+              <span class="text-xs font-mono font-bold text-slate-700 bg-slate-100 px-3 py-1 rounded-full">
+                September 2025 - Present
+              </span>
+            </div>
+            <div class="text-sm font-semibold text-slate-700 mt-1">
+              <em>BYUI Data Science Society</em> <span class="text-slate-400 font-normal">• Rexburg, Idaho</span>
+            </div>
+            <ul class="mt-4 space-y-2 text-base text-slate-600 list-disc list-inside leading-relaxed">
+              <li>Created a web scraper to retrieve data on MILB games relevant to attendance and promotions</li>
+              <li>Conducted statistical analysis predicted to dramatically increase attendance</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</Layout>
+
