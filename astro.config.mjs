@@ -3,8 +3,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://007ian.github.io',
-  base: '/Ians_Work',
+  site: 'https://newleaf-analytics.com',
   integrations: [
     tailwind({
       applyBaseStyles: false,
