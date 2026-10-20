@@ -23,7 +23,7 @@ const imageURL = new URL(image, siteURL).href;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="overflow-x-hidden max-w-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -56,7 +56,7 @@ const imageURL = new URL(image, siteURL).href;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageURL} />
   </head>
-  <body class="min-h-screen flex flex-col bg-gradient-to-br from-[#f8faf8] via-[#f1f6f2] to-[#ecf3ee] text-slate-950 font-sans antialiased selection:bg-emerald-500 selection:text-white relative overflow-x-hidden">
+  <body class="min-h-screen flex flex-col bg-gradient-to-br from-[#f8faf8] via-[#f1f6f2] to-[#ecf3ee] text-slate-950 font-sans antialiased selection:bg-emerald-500 selection:text-white relative overflow-x-hidden w-full max-w-full">
     <!-- Ambient Green Glowing Orbs behind Glass -->
     <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden" aria-hidden="true">
       <div class="absolute -top-32 left-1/4 h-[500px] w-[500px] rounded-full bg-emerald-400/20 blur-[130px]"></div>
@@ -65,7 +65,7 @@ const imageURL = new URL(image, siteURL).href;
       <div class="absolute bottom-10 right-1/4 h-[500px] w-[500px] rounded-full bg-brand-400/20 blur-[130px]"></div>
     </div>
     <Navbar />
-    <main class="flex-1">
+    <main class="flex-1 w-full max-w-full overflow-x-hidden">
       <slot />
     </main>
     <Footer />
