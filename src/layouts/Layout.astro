@@ -1,0 +1,66 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const {
+  title = 'Ian Blad | New Leaf Analytics — HR Analytics & Workflow Automation',
+  description = 'Transforming people data into business strategy. Specialized predictive turnover modeling, automated HR systems, and Google BigQuery data pipelines.',
+  image = `${base}/images/social-preview.png`,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://007ian.github.io');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+  </head>
+  <body class="min-h-screen flex flex-col bg-gradient-to-br from-[#f8faf8] via-[#f1f6f2] to-[#ecf3ee] text-slate-950 font-sans antialiased selection:bg-emerald-500 selection:text-white relative overflow-x-hidden">
+    <!-- Ambient Green Glowing Orbs behind Glass -->
+    <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden" aria-hidden="true">
+      <div class="absolute -top-32 left-1/4 h-[500px] w-[500px] rounded-full bg-emerald-400/20 blur-[130px]"></div>
+      <div class="absolute top-[30%] -right-24 h-[600px] w-[600px] rounded-full bg-teal-400/18 blur-[140px]"></div>
+      <div class="absolute top-[60%] -left-20 h-[550px] w-[550px] rounded-full bg-emerald-500/18 blur-[140px]"></div>
+      <div class="absolute bottom-10 right-1/4 h-[500px] w-[500px] rounded-full bg-brand-400/20 blur-[130px]"></div>
+    </div>
+    <Navbar />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+

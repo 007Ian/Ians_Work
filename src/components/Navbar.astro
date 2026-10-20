@@ -1,0 +1,97 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const navLinks = [
+  { href: `${base}/`, label: 'Home' },
+  { href: `${base}/services`, label: 'Services' },
+  { href: `${base}/projects`, label: 'Case Studies' },
+  { href: `${base}/about`, label: 'About' },
+  { href: `${base}/resume`, label: 'Resume' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-white/50 bg-white/60 backdrop-blur-xl shadow-[0_2px_16px_rgba(0,0,0,0.02)] transition-all">
+  <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <!-- Brand Logo -->
+    <a href={`${base}/`} class="flex items-center gap-3 group">
+      <div class="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 shadow-glow-sm transition-transform duration-200 group-hover:scale-105">
+        <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+          <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+        </svg>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-sm font-bold tracking-tight text-slate-950 font-sans leading-none">New Leaf Analytics</span>
+        <span class="text-[10px] font-medium tracking-wider uppercase text-brand-700 mt-0.5">HR & Workforce Intelligence</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-1 rounded-full border border-white/60 bg-white/50 backdrop-blur-md p-1 text-sm font-medium text-slate-700 shadow-sm">
+      {navLinks.map((link) => {
+        const isActive = currentPath === link.href || currentPath === `${link.href}/`;
+        return (
+          <a
+            href={link.href}
+            class:list={[
+              'rounded-full px-4 py-1.5 transition-colors duration-150',
+              isActive
+                ? 'bg-white/90 text-slate-950 shadow-[0_1px_4px_rgba(0,0,0,0.06)] font-semibold'
+                : 'hover:text-slate-950 hover:bg-white/60'
+            ]}
+          >
+            {link.label}
+          </a>
+        );
+      })}
+    </nav>
+
+    <!-- Right Action Button -->
+    <div class="hidden md:flex items-center gap-3">
+      <a
+        href={`${base}/contact`}
+        class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-emerald-600 to-brand-600 px-4 py-2 text-sm font-semibold text-white shadow-glow-sm transition-all duration-200 hover:from-emerald-500 hover:to-brand-500 hover:shadow-glow hover:-translate-y-0.5"
+      >
+        Book Discovery Call
+        <svg class="ml-1.5 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Mobile Zero-JS Menu (Semantic <details>) -->
+    <details class="md:hidden group relative">
+      <summary class="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-lg border border-white/60 bg-white/70 backdrop-blur-md p-2 text-slate-800 hover:bg-white focus:outline-none shadow-sm">
+        <svg class="h-5 w-5 block group-open:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg class="h-5 w-5 hidden group-open:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </summary>
+      <div class="absolute right-0 top-12 z-50 w-56 rounded-2xl border border-white/60 bg-white/80 backdrop-blur-xl p-3 shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
+        <nav class="flex flex-col gap-1 text-sm font-medium">
+          {navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="rounded-lg px-3 py-2 text-slate-800 hover:bg-white/70 transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+          <div class="mt-2 pt-2 border-t border-slate-100">
+            <a
+              href={`${base}/contact`}
+              class="flex items-center justify-center rounded-xl bg-brand-600 px-3 py-2 text-sm font-medium text-white shadow-sm hover:bg-brand-700"
+            >
+              Book Discovery Call
+            </a>
+          </div>
+        </nav>
+      </div>
+    </details>
+  </div>
+</header>
+

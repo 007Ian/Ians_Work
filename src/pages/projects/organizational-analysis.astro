@@ -1,0 +1,214 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Layout
+  title="Predictive Turnover Analysis | Case Study — New Leaf Analytics"
+  description="Predictive turnover analysis and logistic regression modeling uncovering the Promotion Attrition Paradox in tech engineering teams."
+>
+  <div class="py-16 sm:py-24 lg:py-32">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      
+      <!-- BREADCRUMB -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+        <a href={`${base}/projects`} class="hover:text-emerald-700 transition-colors">Case Studies</a>
+        <span>/</span>
+        <span class="text-slate-800 font-medium">Predictive Retention Diagnostic</span>
+      </nav>
+
+      <!-- TITLE HEADER -->
+      <div class="max-w-4xl mb-16 sm:mb-20">
+        <div class="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-200/80 px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-widest text-emerald-800 shadow-sm mb-6">
+          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+          Hypothetical Analysis • Simulated Research Data
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-950 font-sans leading-tight">
+          Predictive Turnover Analysis: Optimizing Retention in Tech Teams
+        </h1>
+        <div class="mt-4 flex items-center gap-4 text-sm font-mono text-slate-500">
+          <span>By Ian Blad</span>
+          <span>•</span>
+          <span>March 31, 2025</span>
+          <span>•</span>
+          <span class="text-emerald-700 font-bold">75.8% Model Accuracy</span>
+        </div>
+      </div>
+
+      <!-- EXECUTIVE SUMMARY -->
+      <div class="rounded-3xl border border-white/70 bg-white/60 p-8 sm:p-12 backdrop-blur-2xl shadow-[0_12px_40px_rgba(0,0,0,0.04),inset_0_1px_1px_rgba(255,255,255,0.95)] mb-16 sm:mb-24">
+        <!-- Methodology Disclosure Callout -->
+        <div class="mb-6 rounded-2xl bg-emerald-500/10 border border-emerald-400/30 p-4 sm:p-5 flex items-start gap-3.5 text-sm text-slate-800 backdrop-blur-md">
+          <svg class="h-5 w-5 text-emerald-700 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div class="leading-relaxed">
+            <strong class="font-bold text-slate-950">Methodology Note:</strong> This is a hypothetical case study conducted using simulated workforce data designed to reflect and illustrate empirical research on employee turnover drivers.
+          </div>
+        </div>
+
+        <div class="text-xs font-extrabold uppercase tracking-widest text-emerald-700 font-mono mb-3">
+          Executive Summary & Context
+        </div>
+        <div class="space-y-4 text-base sm:text-lg text-slate-700 leading-relaxed">
+          <p>
+            This project highlights a consulting engagement for an early-stage technology company experiencing critical human capital loss. Having operated for just over a year, the organization consistently lost high-performing developers and engineering managers.
+          </p>
+          <p>
+            To isolate systemic vulnerabilities, we developed a diagnostic strategy merging traditional HR Information System (HRIS) metrics with data from a newly deployed employee sentiment survey.
+          </p>
+        </div>
+
+        <div class="mt-8 pt-8 border-t border-slate-200/70 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="rounded-2xl bg-white/60 border border-white/80 p-6 shadow-sm">
+            <h3 class="text-base font-bold text-slate-950 font-sans">The Survey Data</h3>
+            <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+              A 5-point Likert scale measuring critical psychological constructs: Job Satisfaction, Career Growth Perception, Intent to Stay, Autonomy, and Job Embeddedness.
+            </p>
+          </div>
+          <div class="rounded-2xl bg-white/60 border border-white/80 p-6 shadow-sm">
+            <h3 class="text-base font-bold text-slate-950 font-sans">The HRIS Data</h3>
+            <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+              Demographic and operational indicators including Age, Job Level, Salary, Education, Location, Department, Performance Ratings, and Promotion History.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION: EXPLANATORY MODELING -->
+      <section class="mb-20 sm:mb-28">
+        <h2 class="text-3xl font-extrabold text-slate-950 font-sans tracking-tight mb-4">
+          Explanatory Modeling: Logistic Regression
+        </h2>
+        <p class="text-lg text-slate-600 leading-relaxed mb-8 max-w-3xl">
+          We executed a predictive logistic regression analysis to identify the exact weight each factor holds over an individual's likelihood of exiting the firm.
+        </p>
+
+        <div class="rounded-3xl border border-white/70 bg-white/55 p-8 sm:p-10 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)]">
+          <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 font-mono mb-4">
+            <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+            Key Analytical Insight
+          </div>
+          <p class="text-base sm:text-lg text-slate-700 leading-relaxed">
+            While baseline demographic attributes offered minimal explanatory power, survey constructs such as <strong class="text-slate-950">Job Satisfaction</strong>, <strong class="text-slate-950">Career Growth Perception</strong>, and explicit <strong class="text-slate-950">Intent to Stay</strong> acted as statistically significant early indicators of overall retention.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION: CRITICAL FINDING (THE PROMOTION PARADOX) -->
+      <section class="mb-20 sm:mb-28">
+        <div class="inline-flex items-center gap-2 rounded-full bg-amber-50 border border-amber-200/80 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-amber-800 shadow-sm mb-4">
+          Diagnostic Anomaly
+        </div>
+        <h2 class="text-3xl font-extrabold text-slate-950 font-sans tracking-tight mb-4">
+          Critical Finding: The Promotion Attrition Paradox
+        </h2>
+        <p class="text-lg text-slate-600 leading-relaxed mb-8 max-w-3xl">
+          A common organizational misstep is assuming that upward mobility permanently secures talent. In our exploratory parsing, we isolated a significant anomaly: <strong class="text-slate-950">Promotion History holds a strong positive correlation with near-term attrition.</strong>
+        </p>
+
+        <!-- CHART IMAGE ASSET -->
+        <div class="rounded-3xl border border-white/80 bg-white/70 p-6 sm:p-10 backdrop-blur-2xl shadow-[0_12px_40px_rgba(0,0,0,0.04),inset_0_1px_1px_rgba(255,255,255,0.95)] mb-8">
+          <img
+            src={`${base}/images/attrition-paradox.png`}
+            alt="The Attrition Paradox: Tracking predicted probability of leaving against frequency of internal promotion"
+            class="w-full rounded-2xl border border-slate-200/80 shadow-md"
+          />
+          <div class="mt-4 text-xs text-slate-500 font-mono text-center">
+            Figure 1.0: Empirical boxplot showing probability of leaving against promotion history.
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-white/70 bg-white/55 p-8 sm:p-10 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)] space-y-4">
+          <h3 class="text-xl font-bold text-slate-950 font-sans">Structural Explanations</h3>
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+            This trend mirrors macro-market behavior detailed in recent comprehensive compensation and talent mobility studies. Research shows that within the initial 6 months following a promotion, employees face a <strong class="text-slate-950 font-bold">23% spike in flight risk</strong> compared to unpromoted baselines (18%).
+          </p>
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+            This friction manifests primarily when rapid promotion cycles outpace formal training, leaving talent isolated in new leadership tracks without adequate pre-onboarding preparation. In this specific organization, <strong class="text-slate-950 font-bold">23% of the workforce received promotions over the trailing twelve months</strong>, frequently compounding multiple times without bridging support.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION: MAXIMIZING SURVEY RELIABILITY -->
+      <section class="mb-20 sm:mb-28">
+        <h2 class="text-3xl font-extrabold text-slate-950 font-sans tracking-tight mb-4">
+          Maximizing Survey Reliability
+        </h2>
+        <p class="text-lg text-slate-600 leading-relaxed mb-8 max-w-3xl">
+          A baseline correlation matrix highlights relatively minor individual linear relationships across standard workforce checkpoints. This pattern commonly presents itself when relying on standard point-in-time annual engagement surveys.
+        </p>
+
+        <!-- CHART IMAGE ASSET -->
+        <div class="rounded-3xl border border-white/80 bg-white/70 p-6 sm:p-10 backdrop-blur-2xl shadow-[0_12px_40px_rgba(0,0,0,0.04),inset_0_1px_1px_rgba(255,255,255,0.95)] mb-8">
+          <img
+            src={`${base}/images/sentiment-correlation.png`}
+            alt="Linear Intercorrelation Matrix: Sentiment Indicators & Attrition"
+            class="w-full rounded-2xl border border-slate-200/80 shadow-md"
+          />
+          <div class="mt-4 text-xs text-slate-500 font-mono text-center">
+            Figure 2.0: Correlation matrix illustrating multi-variable collinearity across sentiment metrics.
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-emerald-200/80 bg-gradient-to-r from-emerald-50/90 to-teal-50/80 p-8 sm:p-10 backdrop-blur-xl shadow-sm">
+          <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 font-mono mb-2">
+            <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+            Strategic Recommendation
+          </div>
+          <p class="text-base sm:text-lg text-slate-900 leading-relaxed font-medium">
+            Relying on single-instance surveys introduces immediate sentiment bias (capturing acute mood states rather than systemic employment value). To secure cleaner data pipelines, we advise organizations to transition toward a <strong class="text-emerald-900 font-bold">pulse-survey distribution framework</strong>—sampling cross-sections at randomized, ongoing operational intervals to remove cyclical and emotional data noise.
+          </p>
+        </div>
+      </section>
+
+      <!-- SECTION: PREDICTIVE MODEL VALIDATION & ACCURACY -->
+      <section class="mb-20 sm:mb-28">
+        <h2 class="text-3xl font-extrabold text-slate-950 font-sans tracking-tight mb-4">
+          Predictive Model Validation
+        </h2>
+        <p class="text-lg text-slate-600 leading-relaxed mb-8 max-w-3xl">
+          To test operational viability, we partitioned our historical datasets using a standard cross-validation split (60% training asset / 40% verification testing asset).
+        </p>
+
+        <!-- CHART IMAGE ASSET -->
+        <div class="rounded-3xl border border-white/80 bg-white/70 p-6 sm:p-10 backdrop-blur-2xl shadow-[0_12px_40px_rgba(0,0,0,0.04),inset_0_1px_1px_rgba(255,255,255,0.95)] mb-8">
+          <img
+            src={`${base}/images/model-accuracy.png`}
+            alt="Out-of-Sample Accuracy Benchmarking"
+            class="w-full rounded-2xl border border-slate-200/80 shadow-md"
+          />
+          <div class="mt-4 text-xs text-slate-500 font-mono text-center">
+            Figure 3.0: Out-of-sample prediction accuracy benchmarking.
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-white/70 bg-white/60 p-8 sm:p-10 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.04),inset_0_1px_1px_rgba(255,255,255,0.95)] space-y-4">
+          <h3 class="text-2xl font-bold text-slate-950 font-sans">Business Impact & Return on Investment</h3>
+          <p class="text-base sm:text-lg text-slate-700 leading-relaxed">
+            The model performs with an out-of-sample prediction accuracy of <strong class="text-emerald-700 font-extrabold font-mono text-xl">~75.8%</strong>, giving management a rigorous early-warning indicator.
+          </p>
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+            By restructuring promotion workflows—specifically <strong class="text-slate-950">extending pre-promotion preparation schedules by 6 months</strong>—predictive projections isolate a <strong class="text-slate-950 font-bold">9% drop in promoted-tier attrition</strong>, precipitating a <strong class="text-slate-950 font-bold">4.5% downward shift in overall corporate turnover</strong>. For mid-sized organizations, this structural mitigation prevents significant operational losses tied directly to backfill recruiting overhead and lost engineering throughput.
+          </p>
+        </div>
+      </section>
+
+      <!-- BACK LINK -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6 rounded-3xl border border-white/70 bg-white/60 p-8 sm:p-10 backdrop-blur-2xl shadow-sm">
+        <a href={`${base}/projects`} class="text-base font-bold text-slate-700 hover:text-emerald-700 transition-colors">
+          ← Back to All Case Studies
+        </a>
+        <a
+          href={`${base}/contact`}
+          class="inline-flex items-center rounded-2xl bg-gradient-to-r from-emerald-600 to-brand-500 px-6 py-3.5 text-sm font-semibold text-white shadow-glow hover:from-emerald-500 hover:to-brand-400 transition-all"
+        >
+          Request a Retention Diagnostic
+        </a>
+      </div>
+
+    </div>
+  </div>
+</Layout>
+

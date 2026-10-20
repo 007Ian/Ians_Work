@@ -1,0 +1,225 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Layout
+  title="Agentic AI Course: Multi-Agent Systems | Case Study"
+  description="Curriculum module developed for DS 295R Agent Engineering at BYU-Idaho. Multi-agent research pipeline architectures using LangChain and subagents."
+>
+  <div class="py-16 sm:py-24 lg:py-32">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      
+      <!-- BREADCRUMB -->
+      <nav class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+        <a href={`${base}/projects`} class="hover:text-emerald-700 transition-colors">Case Studies</a>
+        <span>/</span>
+        <span class="text-slate-800 font-medium">Agentic AI Curriculum</span>
+      </nav>
+
+      <!-- TITLE HEADER -->
+      <div class="max-w-4xl mb-16 sm:mb-20">
+        <div class="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-200/80 px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-widest text-emerald-800 shadow-sm mb-6">
+          <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+          BYU-Idaho DS 295R Agent Engineering
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-950 font-sans leading-tight">
+          Multi-Agents: Subagents, Handoffs, and Research Pipelines
+        </h1>
+        <p class="mt-6 text-xl sm:text-2xl text-slate-600 font-normal leading-relaxed">
+          Unit 1, Lesson 8 — Hands-on architecture curriculum designed for collegiate AI engineering.
+        </p>
+      </div>
+
+      <!-- OUTCOMES HERO CARD -->
+      <div class="rounded-3xl border border-white/70 bg-white/60 p-8 sm:p-12 backdrop-blur-2xl shadow-[0_12px_40px_rgba(0,0,0,0.04),inset_0_1px_1px_rgba(255,255,255,0.95)] mb-16 sm:mb-24">
+        <div class="text-xs font-extrabold uppercase tracking-widest text-emerald-700 font-mono mb-3">
+          Course Module Learning Outcomes
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950 font-sans tracking-tight mb-6">
+          Mastering Multi-Agent System Design
+        </h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-base sm:text-lg text-slate-700">
+          <li class="flex items-start gap-3">
+            <span class="h-2 w-2 rounded-full bg-emerald-500 mt-2.5 shrink-0"></span>
+            <span>Understand what multi-agent systems are and when they are strictly necessary.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="h-2 w-2 rounded-full bg-emerald-500 mt-2.5 shrink-0"></span>
+            <span>Identify architectural failure modes where a single agent collapses.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="h-2 w-2 rounded-full bg-emerald-500 mt-2.5 shrink-0"></span>
+            <span>Build a production-grade multi-agent research pipeline with role isolation.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="h-2 w-2 rounded-full bg-emerald-500 mt-2.5 shrink-0"></span>
+            <span>Implement coordinated manager-subagent orchestration in Python and LangChain.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- LESSON OVERVIEW TIMELINE -->
+      <section class="mb-20 sm:mb-28">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-950 font-sans tracking-tight mb-8">
+          Lesson Breakdown
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="rounded-2xl border border-white/70 bg-white/55 p-6 backdrop-blur-xl shadow-sm">
+            <div class="text-xs font-mono font-bold text-emerald-700">15 MINUTES</div>
+            <div class="text-base font-bold text-slate-950 mt-1">Lecture</div>
+            <p class="text-sm text-slate-600 mt-2">When Multi-Agents Are Necessary vs Over-Engineering.</p>
+          </div>
+          <div class="rounded-2xl border border-white/70 bg-white/55 p-6 backdrop-blur-xl shadow-sm">
+            <div class="text-xs font-mono font-bold text-emerald-700">15 MINUTES</div>
+            <div class="text-base font-bold text-slate-950 mt-1">Concept Deep Dive</div>
+            <p class="text-sm text-slate-600 mt-2">Context window isolation & subagent boundaries.</p>
+          </div>
+          <div class="rounded-2xl border border-white/70 bg-white/55 p-6 backdrop-blur-xl shadow-sm">
+            <div class="text-xs font-mono font-bold text-emerald-700">25 MINUTES</div>
+            <div class="text-base font-bold text-slate-950 mt-1">Guided Coding</div>
+            <p class="text-sm text-slate-600 mt-2">Building the Python research pipeline architecture.</p>
+          </div>
+          <div class="rounded-2xl border border-white/70 bg-white/55 p-6 backdrop-blur-xl shadow-sm">
+            <div class="text-xs font-mono font-bold text-emerald-700">20+ MINUTES</div>
+            <div class="text-base font-bold text-slate-950 mt-1">Lab Activity</div>
+            <p class="text-sm text-slate-600 mt-2">Extending the pipeline with external tool integration.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE PROBLEM: WHEN ONE AGENT FAILS -->
+      <section class="mb-20 sm:mb-28">
+        <div class="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200/80 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-red-800 shadow-sm mb-4">
+          Core Bottleneck
+        </div>
+        <h2 class="text-3xl font-extrabold text-slate-950 font-sans tracking-tight mb-4">
+          The Problem: When One Agent Fails
+        </h2>
+        <p class="text-lg text-slate-600 leading-relaxed mb-8 max-w-3xl">
+          Consider a realistic production task: <em>"Research AI trends in 2026, evaluate the most important ones, and write a professional report with sources."</em>
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div class="rounded-3xl border border-white/70 bg-white/55 p-8 backdrop-blur-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03),inset_0_1px_1px_rgba(255,255,255,0.9)]">
+            <h3 class="text-lg font-bold text-red-600 font-sans">Single Agent Overload</h3>
+            <p class="text-sm text-slate-600 mt-3 leading-relaxed">
+              When forced to search, evaluate sources, decide relative importance, synthesize reasoning, and compose a final paper in a single prompt loop, a single agent breaks down with:
+            </p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700 list-disc list-inside">
+              <li>Weak and unverified sourcing</li>
+              <li>Hallucinated facts masquerading as citations</li>
+              <li>Muddled reasoning mixed into prose writing</li>
+              <li>No clear checkpoint for debugging failures</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl border border-emerald-200/80 bg-gradient-to-r from-emerald-50/90 to-teal-50/80 p-8 backdrop-blur-xl shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-wider text-emerald-800 font-mono mb-2">Key Engineering Insight</div>
+              <h3 class="text-lg font-bold text-slate-950 font-sans">The Multi-Agent Research Pipeline</h3>
+              <p class="text-sm text-slate-700 mt-3 leading-relaxed">
+                Production AI engineering separates concerns cleanly into specialized roles:
+              </p>
+              <ul class="mt-4 space-y-2 text-sm text-slate-800 font-medium list-disc list-inside">
+                <li><strong>Planner Agent:</strong> Breaks complex prompts into subtopics.</li>
+                <li><strong>Research Agent:</strong> Executes focused fact retrieval in parallel.</li>
+                <li><strong>Analyst Agent:</strong> Evaluates, cross-checks, and ranks findings.</li>
+                <li><strong>Writer Agent:</strong> Compiles final report with clean formatting.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GUIDED CODING SNIPPET -->
+      <section class="mb-20 sm:mb-28">
+        <h2 class="text-3xl font-extrabold text-slate-950 font-sans tracking-tight mb-4">
+          Guided Implementation: Multi-Agent Research System
+        </h2>
+        <p class="text-lg text-slate-600 leading-relaxed mb-8 max-w-3xl">
+          Below is the canonical pipeline pattern taught in the DS 295R course, wrapping specialized agents as tools orchestrated by a top-level manager.
+        </p>
+
+        <div class="rounded-3xl border border-white/20 bg-slate-950 text-slate-100 p-6 sm:p-8 shadow-2xl overflow-x-auto font-mono text-xs sm:text-sm leading-relaxed">
+          <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800 text-xs text-slate-400">
+            <span>pipeline.py</span>
+            <span>Python 3.11 / LangChain</span>
+          </div>
+          <pre><code><span class="text-slate-500"># Step 1: Create Specialized Subagents</span>
+from langchain.agents import create_agent
+from langchain.tools import tool
+
+research_agent = create_agent(
+    model="google_genai:gemini-2.5-flash",
+    system_prompt="""You are a research agent. ONLY gather facts.
+- No opinions
+- No summaries
+- Return bullet points with verifiable citations.""",
+    tools=[search_web, read_local_files]
+)
+
+analysis_agent = create_agent(
+    model="google_genai:gemini-2.5-flash",
+    system_prompt="""You are an analyst.
+Take raw research and:
+- Identify key strategic insights
+- Compare conflicting findings
+- Rank importance by business impact."""
+)
+
+writer_agent = create_agent(
+    model="google_genai:gemini-2.5-flash",
+    system_prompt="""You are an executive writer.
+Synthesize analysis into a structured executive report."""
+)
+
+<span class="text-slate-500"># Step 2: Wrap Subagents as Tools for Manager Coordination</span>
+@tool
+def do_research(query: str) -> str:
+    """Gather raw information on a specific subtopic"""
+    result = research_agent.invoke(&#123;"messages": [&#123;"role": "user", "content": query&#125;]&#125;)
+    return result["messages"][-1].content
+
+@tool
+def do_analysis(data: str) -> str:
+    """Analyze research findings and extract insights"""
+    result = analysis_agent.invoke(&#123;"messages": [&#123;"role": "user", "content": data&#125;]&#125;)
+    return result["messages"][-1].content
+
+@tool
+def do_writing(data: str) -> str:
+    """Format analyzed insights into a finished report"""
+    result = writer_agent.invoke(&#123;"messages": [&#123;"role": "user", "content": data&#125;]&#125;)
+    return result["messages"][-1].content
+
+<span class="text-slate-500"># Step 3: Orchestrate with Manager Agent</span>
+manager = create_agent(
+    model="google_genai:gemini-2.5-flash",
+    system_prompt="""You are a manager coordinating an automated research pipeline.
+1. Call do_research with subtopic queries.
+2. Pass gathered findings to do_analysis.
+3. Pass analyzed insights to do_writing.
+Return ONLY the final report output.""",
+    tools=[do_research, do_analysis, do_writing]
+)</code></pre>
+        </div>
+      </section>
+
+      <!-- BACK LINK -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6 rounded-3xl border border-white/70 bg-white/60 p-8 sm:p-10 backdrop-blur-2xl shadow-sm">
+        <a href={`${base}/projects`} class="text-base font-bold text-slate-700 hover:text-emerald-700 transition-colors">
+          ← Back to All Case Studies
+        </a>
+        <a
+          href={`${base}/contact`}
+          class="inline-flex items-center rounded-2xl bg-gradient-to-r from-emerald-600 to-brand-500 px-6 py-3.5 text-sm font-semibold text-white shadow-glow hover:from-emerald-500 hover:to-brand-400 transition-all"
+        >
+          Discuss AI & Automation
+        </a>
+      </div>
+
+    </div>
+  </div>
+</Layout>
